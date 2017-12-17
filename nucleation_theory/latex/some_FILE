@@ -1,0 +1,29 @@
+task :default do
+  system 'rake -T'
+end
+
+desc 'convert latex to md'
+task :latex2md do
+  p file = ARGV[1]
+  p tmp = 'tmp.md'
+  system "pandoc -s #{file} -o #{tmp}"
+  lines = File.readlines(tmp)
+  cont = ""
+  lines.each do |line|
+    line = delete_label(line)
+    cont <<  change_eps_jpg(line)
+  end
+  print cont
+  exit
+end
+
+def delete_label(line)
+  if m=line.match(/\\label{(.+?)}(.+)/)
+    line = m[2]
+  end
+  return line
+end
+
+def change_eps_jpg(line)
+  line.gsub('.eps','.jpg')
+end
