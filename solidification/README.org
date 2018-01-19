@@ -3,8 +3,8 @@
 #+author:西谷滋人
 
 * 講義資料
-** [[nucleation.pdf][核生成と界面]]
-** [[growth.pdf][一方向凝固の濃度分布]]
-** [[surface_instability.pdf][組成的過冷却と共晶凝固]]
-** [[etc.pdf][工業プロセスでの凝固現象]]
-** [[Appendix.pdf][補足(Gibbs-Thomson)]]
+** [[file:nucleation.pdf][核生成と界面]]
+** [[file:growth.pdf][一方向凝固の濃度分布]]
+** [[file:surface_instability.pdf][組成的過冷却と共晶凝固]]
+** [[file:etc.pdf][工業プロセスでの凝固現象]]
+** [[file:Appendix.pdf][補足(Gibbs-Thomson)]]
