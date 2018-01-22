@@ -10,11 +10,11 @@ The topics are
       2) Gibbs ensemble, 
       3) Einstein vibration model, 
       4) Metropolis Monte Carlo
-2) [[file:nucleation_theory/README.ipynb][new nucleation method]]
-3) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]]
-4) Solidification process
+   2) [[file:nucleation_theory/README.ipynb][new nucleation method]]
+2) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]]
+3) Solidification process
    1. Metastable solvent epitaxy
-5) Formation mechanism of LPSO in Mg alloys
+4) Formation mechanism of LPSO in Mg alloys
 
 * Computational skills
 1) Mathematics by codes: Formula manipulations, Matrix, Numerical calculations
