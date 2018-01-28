@@ -1,62 +1,24 @@
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. </a></li>
-<li><a href="#sec-2">2. </a></li>
-<li><a href="#sec-3">3. 析出(第一原理計算+ 配置エントロピー)</a>
-<ul>
-<li><a href="#sec-3-1">3.1. Fe-Cu</a></li>
-<li><a href="#sec-3-2">3.2. その他の系</a></li>
-</ul>
-</li>
-<li><a href="#sec-4">4. phonon(振動効果のinclusion)</a>
-<ul>
-<li><a href="#sec-4-1">4.1. Frenkel法</a></li>
-</ul>
-</li>
-<li><a href="#sec-5">5. solidification</a>
-<ul>
-<li><a href="#sec-5-1">5.1. MSE on SiC</a></li>
-</ul>
-</li>
-<li><a href="#sec-6">6. 粒界()</a>
-<ul>
-<li><a href="#sec-6-1">6.1. 転位</a></li>
-</ul>
-</li>
-<li><a href="#sec-7">7. 現実組織の発展過程</a>
-<ul>
-<li><a href="#sec-7-1">7.1. LPSO</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+# agenda
 
 
-# <file:///Users/bob/materials_science/lattice_defects><a id="sec-1" name="sec-1"></a>
+- 材料の計算・研究での視点の移動
+   - [keynote](./CAMM2018.key)
+   - generalなモデル vs specificな対象
+   - 平衡状態 vs 動的過程
+- Fe-Cu系の析出核生成
+   - [keynote](./Nucleation_CAMM18.key)
+   - [notebook](../nucleation_theory/README.ipynb)
+   - 核生成の自由エネルギー，添加元素，空孔
+   - 動的過程との接続，熱振動の影響
+- SiCの液相成長
+   - [keynote](MSE_phonon_CAMM18.key)
+   - 凝固, 準安定平衡，
+   - 振動効果計算の失敗例[yamamoto_doctor_thesis.pdf](../yamamoto_doctor_thesis.pdf)
+   - phononの比較[Prof.Parlinski(MedeA) vs Prof.Togo(phonopy)](../sakaki_master_thesis.pdf)
+   - 非調和を入れるにはFrenkel法 (Prof. Neugebauer(Dusseldolf), Prof. Sahara(NIMS))
+- Mg系合金のLPSO相の形成過程
+   - [keynote](./LPSO_CAMM18.key)
+   - [notebook](../LPSO/README2016.ipynb)
+   - 振動効果が動機，キネティックMCのちがったapproach
 
-# <https://github.com/daddygongon/materials_science/><a id="sec-2" name="sec-2"></a>
 
-# [析出(第一原理計算+ 配置エントロピー)](../nucleation_theory)<a id="sec-3" name="sec-3"></a>
-
-## Fe-Cu<a id="sec-3-1" name="sec-3-1"></a>
-
-## その他の系<a id="sec-3-2" name="sec-3-2"></a>
-
-# phonon(振動効果のinclusion)<a id="sec-4" name="sec-4"></a>
-
-## Frenkel法<a id="sec-4-1" name="sec-4-1"></a>
-
-# solidification<a id="sec-5" name="sec-5"></a>
-
-## MSE on SiC<a id="sec-5-1" name="sec-5-1"></a>
-
-# 粒界()<a id="sec-6" name="sec-6"></a>
-
-## 転位<a id="sec-6-1" name="sec-6-1"></a>
-
-# 現実組織の発展過程<a id="sec-7" name="sec-7"></a>
-
-## LPSO<a id="sec-7-1" name="sec-7-1"></a>
