@@ -1,5 +1,0 @@
-#!/usr/loacl/bin/osas
-
-tell application "Finder"
-    get POSIX path of (target of window #{ID} as string)
-end tell
