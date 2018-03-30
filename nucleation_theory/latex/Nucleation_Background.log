@@ -1,0 +1,274 @@
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.3.27)  27 MAR 2018 18:51
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**Nucleation_Background.tex
+(./Nucleation_Background.tex
+pLaTeX2e <2017/10/28>+4 (based on LaTeX2e <2017-04-15>)
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2017/09/19 v1.7g Standard pLaTeX class
+\c@@paper=\count82
+(/usr/local/texlive/2017/texmf-dist/tex/platex/base/jsize10.clo
+File: jsize10.clo 2017/09/19 v1.7g Standard pLaTeX file (size option)
+)
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 613.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count91
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 99.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+)
+(/usr/local/texlive/texmf-local/tex/latex/local/epsbox.sty
+EPSbox version 1.6 - Released May 5, 1992 (for LaTeX/jdvi2kps2.1)
+Based on EPSF macro package. version 1.2 - Released July 16, 1990
+\@darg=\dimen123
+\eps@xdim=\dimen124
+\eps@ydim=\dimen125
+\eps@width=\dimen126
+\eps@height=\dimen127
+\eps@tempdima=\dimen128
+\eps@tempdimb=\dimen129
+\eps@cnta=\count92
+\eps@cntb=\count93
+\eps@cntc=\count94
+\eps@cntd=\count95
+\ps@stream=\read1
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip43
+\f@nch@O@elh=\skip44
+\f@nch@O@erh=\skip45
+\f@nch@O@olh=\skip46
+\f@nch@O@orh=\skip47
+\f@nch@O@elf=\skip48
+\f@nch@O@erf=\skip49
+\f@nch@O@olf=\skip50
+\f@nch@O@orf=\skip51
+)
+(/usr/local/texlive/texmf-local/tex/latex/local/indent.sty)
+(/usr/local/texlive/texmf-local/tex/latex/local/maple2e.sty
+Package: maple2e 1998/09/21 v1.15
+Package: maple2e 1998/09/21 maple2eMaple Latex Style Package -- 1998/09/21 mapl
+e2e
+(/usr/local/texlive/texmf-local/tex/latex/local/mapleenv.sty
+Package: mapleenv 1998/09/19 -- Maple Environments -- mapleenv.sty 
+
+Defining Standard Maple Environemnts
+(/usr/local/texlive/texmf-local/tex/latex/local/mapleutil.sty
+Package: mapleutil 1998/09/19 -- Maple Style Utilities
+
+Defining Maple Utility Macros
+\@MapleTabSize=\dimen130
+\MapleListCorrection=\toks16
+) (/usr/local/texlive/texmf-local/tex/latex/local/mapleenv.def
+\AboveMapleSkip=\skip52
+\BelowMapleSkip=\skip53
+\LeftMapleSkip=\dimen131
+\AboveMaplePlot=\skip54
+\BelowMaplePlot=\skip55
+\MaplePlotHeight=\dimen132
+\MaplePlotWidth=\dimen133
+\MaplePlotHeight@Fudge=\dimen134
+\MaplePlotWidth@Fudge=\dimen135
+\MapleSepLineWidth=\dimen136
+\MapleTab=\count96
+\MaplePromptString=\toks17
+\MaplePromptSecondary=\toks18
+\MapleSepLineHeight=\dimen137
+)
+\newleftskip=\skip56
+\mapleinputbox=\box42
+\maplebox=\box43
+\Tab=\dimen138
+\@inlinebox=\box44
+\cellwidth=\dimen139
+)
+(/usr/local/texlive/texmf-local/tex/latex/local/mapletab.sty
+Package: mapletab 1998/09/19 -- Maple Spreadsheets
+
+Defining Maple Spreadsheet Environemnts
+Maple Spreadsheet and Table Support
+\multilinesep=\dimen140
+\@linebuffer=\box45
+\@currentline=\box46
+\@linebufferwidth=\dimen141
+\EndMultiLine=\toks19
+) (/usr/local/texlive/texmf-local/tex/latex/local/mapleplots.sty
+Package: mapleplots 1998/09/19 -- Maple Plotting Macros
+
+Defining Maple Plot Environemnts
+ ...Defaults to "dvips" Driver 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
+\epsfxsize=\dimen142
+\epsfysize=\dimen143
+))
+(/usr/local/texlive/texmf-local/tex/latex/local/maplestyle.sty
+Package: maplestyle 1998/09/19 -- Maple Environments -- mapleenv.sty 
+
+Defining Automatic Style Generation Macros
+\maplettybox=\box47
+))
+Defining new paragraph style: Maple Output
+Defining new paragraph style: Maple Plot
+(./Nucleation_Background.aux)
+\openout1 = `Nucleation_Background.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 42.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 49.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 49.
+
+
+LaTeX Warning: Citation `Fujita:1973' on page 1 undefined on input line 49.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 52.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 52.
+File: ./figs/NucleationFreeE.eps Graphic file (type eps)
+<./figs/NucleationFreeE.eps>
+File: ./figs/SurfaceEnergy.eps Graphic file (type eps)
+ <./figs/SurfaceEnergy.eps> [1
+
+]
+File: ./figs/Precipitation.eps Graphic file (type eps)
+
+<./figs/Precipitation.eps>
+File: ./figs/DrivingForce.eps Graphic file (type eps)
+ <./figs/DrivingForce.eps> [2] [3]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 145.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 145.
+Missing character: There is no ^^ef in font cmr10!
+Missing character: There is no ^^bd in font cmr10!
+Missing character: There is no ^^a5 in font cmr10!
+File: ./figs/Fig2.eps Graphic file (type eps)
+ <./figs/Fig2.eps>
+[4]
+File: ./figs/ClusterEnergy.eps Graphic file (type eps)
+ <./figs/ClusterEnergy.eps>
+File: ./figs/ClusterFreeEnergy.eps Graphic file (type eps)
+ <./figs/ClusterFreeEnergy.eps> [5]
+
+LaTeX Warning: Citation `Odagaki03' on page 6 undefined on input line 187.
+
+File: ./figs/SchemRotation2.eps Graphic file (type eps)
+<./figs/SchemRotation2.eps> [6]
+File: ./figs/cluster2.eps Graphic file (type eps)
+ <./figs/cluster2.eps>
+File: ./figs/EntropyRev.eps Graphic file (type eps)
+ <./figs/EntropyRev.eps>
+Overfull \hbox (2.40826pt too wide) in paragraph at lines 258--264
+\JY1/mc/m/n/10 示した単純な \OT1/cmr/m/n/10 Bragg-Williams \JY1/mc/m/n/10 近似
+を用いた場合のエントロピ ー変化を示す． \OT1/cmr/m/n/10 W(BW)+W(rot24)
+ []
+
+
+Overfull \hbox (44.98392pt too wide) in paragraph at lines 258--264
+\JY1/mc/m/n/10 ピ ーへの影響はわずかな平行移動でしかないことが分かる \OT1/cmr/m
+/n/10 ([]\OT1/cmtt/m/n/10 x:=0.014;k:=0.8617*10^(-4);T:=273+500;
+ []
+
+[7]
+File: ./figs/FreeEnergyRev.eps Graphic file (type eps)
+ <./figs/FreeEnergyRev.eps>
+File: ./figs/FreeEnergyRev2.eps Graphic file (type eps)
+ <./figs/FreeEnergyRev2.eps> [8] [9]
+File: ./figs/ClusterGrowth.eps Graphic file (type eps)
+
+<./figs/ClusterGrowth.eps> [10] [11]
+File: ./figs/dG.eps Graphic file (type eps)
+ <./figs/dG.eps> [12] [13] [14]
+(./Nucleation_Background.bbl
+
+LaTeX Font Warning: Font shape `JT1/gt/m/it' undefined
+(Font)              using `JT1/gt/m/n' instead on input line 7.
+
+
+LaTeX Font Warning: Font shape `JY1/gt/m/it' undefined
+(Font)              using `JY1/gt/m/n' instead on input line 7.
+
+[15]) [16] (./Nucleation_Background.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1268 strings out of 493640
+ 16683 string characters out of 6148698
+ 83104 words of memory out of 5000000
+ 4866 multiletter control sequences out of 15000+600000
+ 14915 words of font info for 57 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 34i,12n,43p,927b,351s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on Nucleation_Background.dvi (16 pages, 58152 bytes).
