@@ -1,0 +1,42 @@
+* 核生成における自由エネルギー変化
+  - local_dir:/Users/bob/materials_science/nucleation_theory
+  - https://github.com/daddygongon/materials_science/
+  - cc by 関西学院大学・理工学部・情報科学科　西谷滋人 2018
+
+* Introduction
+  我々が提案した析出核の自由エネルギー変化の精密計算法は，核生成の自由エネルギーをエンタルピー項とエントロピー項に分け，前者を第一原理計算によって，後者を統計熱力学からの見積もりによって精確に計算する．
+
+この研究の動機は，藤田英一阪大名誉教授の「核生成にはエネルギーバリアがない」という主旨の論文，発表で，私自身が理解している範囲で藤田ジレンマについて先ずまとめておく．西谷は先の研究で藤田ジレンマに対する一応の解答を得たと考えている．
+
+藤田自身の問題意識は，30年以上にわたってこの問題を発信してきたことからも分かる通り，それを理解するととても深く，示唆に富んでいる．しかし，その「核生成にはエネルギーバリアがない」とか「不足分が本体分を越す」などといった禅問答のような表現が独り歩きしている．これはセンセーションを狙った藤田特有の物言いで，翁のおちゃめと解している．しかしその示唆は貴重で，1973年の論文中[@Fujita:1973]の「反応速度式の考え方と，前述の核形成論とを結びつけるようなやり方」として出された読者への宿題を本気で解いていれば，[@BinderStauffer:1976]の有名なクラスターダイナミックスに先んじていたかもしれない．
+
+* published papers related to nucleation calculation
+
+** あたらしい計算法
+*** [概略]
+    - No.50, "析出核生成による自由エネルギーの第一原理計算", 世古敦人　西谷滋人　田中 功　足立裕彦，日本金属学会誌,68巻12号(2004), 973--976.
+    - No.47, "First-principle calculation on free energy of precipitate nucleation", Atsuto Seko, Shigeto R.Nishitani, Isao Tanaka, Hirohiko Adachi and Eiichi F. Fujita, Calphad, 28 Issue 2, (2004), 173--176.
+    - No.55, "バルク中でのナノサイズ熱力学と相安定性", 西谷滋人，まてりあ,46巻3号(2007), 創立70周年記念特集「材料科学の課題と展望~ナノマテリアル・環境材料を中心として~」pp.216-219.
+*** [Fujita Dilemma] ...
+** back ground
+*** [活性化エネルギーの使いドコロ] unpublished
+*** [振動効果]
+    - No.46, "Vibrational Contribution on Nucleation Free Energy of Cu Precipitates in Fe-Cu System" http://www.jim.or.jp/journal/e/pdf3/45/05/1473.pdf, Koretaka Yuge, Atsuto Seko, Kengo Kobayashi, Tetsuyuki Tatsuoka, Shigeto R.Nishitani and Hirohiko Adachi, Materials Trans., 45 No.5, (2004), 1473--1477.
+    - No.52, "First-principles study of the effect of lattice vibrations on Cu nucleation free energy in Fe-Cu alloys", (20) Koretaka Yuge, Atsuto Seko, Isao Tanaka and Shigeto R. Nishitani, Physical Review B, 72, (2005), 174201(7 pages).
+    - No.48, "Theoretical Study of Vibrational Contribution on Cluster Formation in a Binary Alloy System", Koretaka Yuge, Shigeto R.Nishitani and Isao Tanaka, Calphad, 28 Issue 2, (2004), 167--171.
+** 応用
+*** [組成傾斜合金] unpublished
+*** [3元系(空孔も)]
+     - No.45, "Free-Energy Calculation of Precipitate Nucleation in an Fe-Cu-Ni Alloy", Atsuto Seko, Natsuki Odagaki, Shigeto R.Nishitani, Isao Tanaka and Hirohiko Adachi, Materials Trans., 45 No.6, (2004), 1978-1981.
+     - No.54, "Vacancy effect on the precipitate nucleation in Fe-Cu alloy", Shigeto R. Nishitani, Atsuto Seko, Koretaka Yuge, and Isao Tanaka, Proceedings for the 3rd International Conference of Multiscale Materials Modeling, Ed by P. Gumbsch, (Fraunfofer IRB Veralag, 2006, ISBN-10: 3-8167-7206-4, ISBN-13: 978-3-8167-7206-4), pp.771-773.MMM06.pdf
+***  [精緻化(回転のエントロピー)] unpublished
+*** 表面の核生成 just idea..., 具体的な事例があればすぐにやります
+
+** 熱力学他テキスト
+  - No. 62, ”状態図と統計力学の基礎” 11PhaseDiagramSeminar.pdf 西谷滋人，学振状態図セミナー(11/10/17,18, 東京工業大学，大岡山キャンパス，フェライト記念会議室).
+  _ "固体物理の基礎 　材料がわかる量子力学と熱統計力学",西谷滋人，森北出版 2006.
+
+
+
+
+
