@@ -12,8 +12,8 @@ The topics are
       4) Metropolis Monte Carlo
    2) [[file:nucleation_theory/README.ipynb][new nucleation method]]
 2) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]
-3) Solidification process
-   1. [[file:solidification/README.org][Solidification]
+3) Solidification
+   1. [[file:solidification/README.org][Solidification process]]
    1. Metastable solvent epitaxy
 4) Formation mechanism of LPSO in Mg alloys
 
