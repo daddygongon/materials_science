@@ -11,8 +11,9 @@ The topics are
       3) Einstein vibration model, 
       4) Metropolis Monte Carlo
    2) [[file:nucleation_theory/README.ipynb][new nucleation method]]
-2) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]]
+2) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]
 3) Solidification process
+   1. [[file:solidication/README.org][Solidification]]
    1. Metastable solvent epitaxy
 4) Formation mechanism of LPSO in Mg alloys
 
