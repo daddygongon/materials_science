@@ -1,5 +1,5 @@
 #+STARTUP: indent nolineimages nofold
-#+title: Lecture Notes on Excercise on Materials Science加工プロセス学(後半，凝固)資料(2003年度)
+#+title: Lecture Notes on Excercise of Materials Science加工プロセス学(後半，凝固)資料(2003年度)
 #+author:西谷滋人
 
 * 講義資料

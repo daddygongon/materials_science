@@ -11,16 +11,16 @@ The topics are
       3) Einstein vibration model, 
       4) Metropolis Monte Carlo
    2) [[file:nucleation_theory/README.ipynb][new nucleation method]]
-2) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]
+2) [[file:sakaki_master_thesis.pdf][Comparison of phonon calculations]]
 3) Solidification
    1. [[file:solidification/README.org][Solidification process]]
    1. Metastable solvent epitaxy
 4) Formation mechanism of LPSO in Mg alloys
 
 * Computational skills
-1) Mathematics by codes: Formula manipulations, Matrix, Numerical calculations
-   1) Maple
-   2) Python
-2) Building Command Line Application by Ruby
+1) Doing Mathematics with codes: Formula manipulations, Matrix, Numerical calculations
+   1) [[https://ist.ksc.kwansei.ac.jp/~nishitani/MapleHiki][Maple]] 
+   2) [[https://github.com/daddygongon/jupyter_num_calc][Python]]
+2) Building Command Line Application with Ruby
 3) Open Source Software developments (OSS Gate)
 
