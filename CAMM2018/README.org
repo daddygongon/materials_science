@@ -1,0 +1,20 @@
+- 材料の計算・研究での視点の移動
+  -  [[./1_CAMM2018.key]]
+  - generalなモデル vs specificな対象
+  -  平衡状態 vs 動的過程
+-  Fe-Cu系の析出核生成
+  -  [[./2_Nucleation_CAMM18.key]]
+  -  [[../nucleation_theory/README.ipynb][notebook]]
+  -  核生成の自由エネルギー，添加元素，空孔
+  -  動的過程との接続，熱振動の影響
+  -  [[./3_KMC_vibration_CAMM18.key]]
+-  SiCの液相成長
+  -  [[./4_MSE_phonon_CAMM18.key]]
+  -  凝固, 準安定平衡，
+  -  振動効果計算の失敗例[[../yamamoto_doctor_thesis.pdf][yamamoto_doctor_thesis.pdf]]
+  -  phononの比較[[../sakaki_master_thesis.pdf][Prof.Parlinski(MedeA) vs   Prof.Togo(phonopy)]]
+  -  非調和を入れるにはFrenkel法 (Prof. Neugebauer(Dusseldolf), Prof.Sahara(NIMS))
+-  Mg系合金のLPSO相の形成過程
+  -  [[./5_LPSO_CAMM18.key]]
+  -  [[../LPSO/README2016.ipynb][notebook]]
+  -  振動効果が動機，キネティックMCのちがったapproach

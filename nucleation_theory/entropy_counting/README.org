@@ -1,0 +1,27 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages
+#+TITLE: 核生成のエントロピー変化の数え上げ
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "nishitani@kwansei.ac.jp")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+
+#+SETUPFILE: /Users/bob/org-html-themes/setup/theme-readtheorg.setup
+
+* 概要
+2018年秋に府大の上杉先生から数え上げの問い合わせあり．
+探してみたけど，計算の数値まで残したまとものなのが
+見当たらない．多分小田垣の卒論が一番だと思うが，
+それは，印刷物(科研費の報告書)でしか残ってなさそう．
+
+なので，その周りのをまとめて送っておく．
+数字はどこかに残しておかないとね．
+
+* 添付資料の説明
+- [[./Fe-Cu_original_calc.pdf][Fe-Cu二元系の計算]] :: Mapleによる計算コードです．
+- [[./Kinzoku02.pdf][金属の原稿]] :: 雑誌「金属」のボツ原稿．並進エントロピーを比較的詳しく書いている．
+- [[./DerivationsOfKamijoFukutomi.pdf][エントロピー導出]] :: 5.2, 5.3に数字を含めて載せてる．
+- [[./Calphad_Seko.pdf][世古のcalphad論文]] :: 小田垣の3元系
+- [[./MMM06.pdf][空孔入り]] :: 小田垣のvacancy版
+
+
