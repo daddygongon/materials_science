@@ -1,0 +1,33 @@
+\subsection{Phonon計算}
+ここでは，\ref{ZrCr2Laves相のphonon計算による高温安定性}節，\ref{SiC結晶多形における熱膨張率}節で用いたPhonon-DOS法を紹介する．
+Phonon-DOS法とは基底状態におけるPhonon分散曲線（図\ref{Phonon_Dispersion_DOS}(a)）を求め，それを積分することによってPhonon-DOSを算出し，熱振動自由エネルギーを求める手法である．
+このルーチンは，VASPのモデル構築前処理ソフトであるMedaAに組み込まれている．Phonon計算自身はParlinskiが開発し，フリーソフトとして公開されている直接法を採用している\cite{Parlinski}．
+
+直接法は，単純に一個の原子を平衡位置から微少量だけ動かし，その時のエネルギー変化を微分し，原子間の力定数を求める．
+そしてその力定数から振動数$\omega$のPhonon分散曲線を描き，Phonon-DOSを求める手法である．
+
+Phonon-DOS$n(\omega)$から自由エネルギー$F$を導出する関係式は
+\begin{equation}
+F(a,T)=E(a)+k_\textrm{B}T\int_{0}^{\infty}n(\omega)\textrm{ln}\left[2\textrm{sinh}\left(\frac{\hbar \omega}{2k_\textrm{B} T}\right)\right]\textrm{d}\omega
+\label{Phonon_DOS_Method}
+\end{equation}
+となる．$\omega$はk-spaceにおける振動数，$E(a)$は系の静止エネルギー，$a$はそのときの格子定数，$k_\textrm{B}$はボルツマン定数，$T$は温度である．
+$\hbar$はプランク定数$h$を$2\pi$で割った定数である\cite{Kittel05}\cite{Nagai05}．
+
+式(\ref{Phonon_DOS_Method})で明示したように，Phonon-DOS法から算出する自由エネルギーは，格子定数$a$と温度$T$を変数パラメータとしている．
+つまり，基底状態における系のエネルギー，およびPhonon-DOSを決定できる高精度な第一原理計算と，Phonon-DOS法を組み合わせると，結晶格子の格子モデルさえ設定すれば，その系における自由エネルギーの温度依存性を算出できることを意味する．
+これを利用すると，同様の結晶格子において，格子定数などを意図的に操作し，各々のモデルにおける自由エネルギーの温度依存性を求めると，ある温度での最安定構造を決定でき，結晶多形等の相安定性のみならず，熱膨張率や体積弾性率などの諸物性も求めることが出来る．
+
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=11cm]{./yamamoto/Figure/Phonon_Dispersion_DOS.jpg} 
+\caption{アルミニウムにおける(a) Phonon分散曲線， (b) Phonon-DOS．} \label{Phonon_Dispersion_DOS}
+\end{center}
+\end{figure} 
+\begin{thebibliography}{9}
+\bibitem{Parlinski}K. Parlinski, Z. Q. Li, and Y. Kawazoe: Phys. Rev. Lett.78(1997) 4063-4066.
+\bibitem{Kittel05}
+C.Kittel著，宇野良清，津屋昇，新関駒二郎，森田章，山下次郎訳（2005），『キッテル　固体物理学入門』，丸善株式会社．
+\bibitem{Nagai05}
+沼居貴陽著（2005），『固体物理学演習　キッテルの理解を深めるために』，丸善株式会社．
+\end{thebibliography}

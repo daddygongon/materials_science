@@ -1,0 +1,89 @@
+\section{具体的な適用例}
+\subsection{SiC表面エネルギー計算}
+\paragraph{背景}
+SiCは現在，半導体材料として主に用いられているSiに比べ，高耐圧，低損失等の優れた物性的特徴から次世代パワー半導体材料として注目されている．しかし，実用化が遅れている原因として，SiCの単結晶成長が困難であり，単結晶に多くの欠陥を生む事が挙げられる．
+SiC単結晶成長法には，主にLely法と呼ばれる気相成長法が用いられている．この手法で成長させた，SiC単結晶には(0001)面上にマイクロパイプ欠陥が発生し．デバイスにとって致命的な欠陥となる．この様相を図1(a)に示した．
+一方，関西学院大学．金子教授らがMSE法と呼ばれる液相成長法を開発した．この手法では，マイクロパイプ欠陥は見られず，低欠陥で高品質な単結晶成長を実現している．この様相を図1(b)に示した．
+また，両手法の特徴を，表1に示す．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=8cm]{./shigaki/Figure/fig1.jpg}
+\caption{各々の手法で成長させたSiC単結晶．}
+\label{図1}
+\end{center}
+\end{figure}
+\begin{table}[h]
+\caption{SiC単結晶成長において，成長プロセス，成長環境，マイクロパイプ欠陥の関連．}
+\begin{center}
+\begin{tabular}{|c|c|c|} \hline
+& Lely法 & MSE法 \\ \hline
+マイクロパイプ欠陥 & 有 & 無 \\ \hline
+成長プロセス & 非平衡（気固）& 平衡（液固）\\ \hline
+環境  & C-rich & Si-rich \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+両手法の決定的な違いに，成長環境がある．これは，表面エネルギーの数値に大きく関わり，単結晶の外形を決定づける要因になっている．本研究では，VASPを用いた第一原理計算を行い，環境の違いで，表面エネルギーがどう変わるかを探っていく．
+\paragraph{手法}
+SiCは(0001)方向に向かって，Siだけの面，Cだけの面が交互に配列した構造をとる．この構造では(0001)面と(000-1)面の終端面の構成元素の組み合わせにより，SiCの表面エネルギーが変わってくる．本研究ではSi-richな環境とC-richな環境を区別するため，表面を覆うSi原子の割合を$\theta_\textrm{Si}$とし，図2のようなスラブモデルを作成し，それぞれの表面エネルギーを計算した．図2の$\theta_\textrm{Si}=0$，$\theta_\textrm{Si}=1$のモデルでは，モデル中のSi原子数とC原子数の比が1:1でなくなる．この状態での表面エネルギー計算においては，化学ポテンシャルの概念を利用した．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=11cm]{./shigaki/Figure/fig2.jpg}
+\caption{表面を覆うSi原子の割合を$\theta_\textrm{Si}$とし，Si-rich，C-richの環境を考慮したスラブモデルの模式図．なお$\theta_\textrm{Si}$=0.5の場合，図のようにa-typeとb-typeのモデルを作成した．}
+\label{図2}
+\end{center}
+\end{figure}
+
+化学ポテンシャルはモル[mol]あたりの自由エネルギーを意味し，$\mu$で表記される．基底状態においてバルクのエネルギーを$E_\textrm{i(bulk)}$，バルク中の原子数を$n_\textrm{i}$とすると，化学ポテンシャルは式1で表される．
+\begin{equation}
+\mu_\textrm{i} = \frac{E_\textrm{i(bulk)}}{n_\textrm{i}}
+\label{1}
+\end{equation}
+
+そして式2に示すようにSiC中の化学ポテンシャル$\mu_\textrm{SiC(bulk)}$は，Siの化学ポテンシャル$\mu_\textrm{Si}$とCの化学ポテンシャル$\mu_\textrm{C}$の和で表すことができる．また二種類の元素A，Bからなる化合物ABは，熱的にAB=A+B+$\Delta H_{f}$が成り立ち，それはSiCにおいても同様であり式3が成り立つ．ここで$\Delta H_{f}$は生成熱を表す．
+\begin{align}
+\mu_\textrm{Si}+\mu_\textrm{C} &= \mu_\textrm{SiC(bulk)} \\
+                                          &= \mu_\textrm{Si(bulk)} + \mu_\textrm{C(bulk)} + \Delta H_{f}
+\end{align}
+そして，式3より，SiC中の化学ポテンシャルが示し得るエネルギー値の範囲は以下のように計算出来る．
+\begin{equation}
+\Delta H_{f} \leqq 0のとき
+\end{equation}
+\begin{equation}      
+\mu_\textrm{Si(bulk)} + \Delta H_{f} \leqq \mu_\textrm{Si} \leqq \mu_\textrm{Si(bulk)}
+\end{equation}
+ \begin{equation}
+\mu_\textrm{C(bulk)} + \Delta H_{f} \leqq \mu_\textrm{C} \leqq \mu_\textrm{C(bulk)}
+\end{equation}
+式5，6において$\mu_\textrm{Si}$と$\mu_\textrm{C}$の値は式3を満足するように，相対的に決まる．例えば$\mu_\textrm{Si} = \mu_\textrm{Si(bulk)}$とすると，$\mu_\textrm{C} = \mu_\textrm{C(bulk)} + \Delta H_{f}$となる．これらの化学ポテンシャルの概念を反映させる事により，$\theta_\textrm{Si}=0$と$\theta_\textrm{Si}=1$の場合の表面エネルギー$E_\textrm{SiC(suface)}$の導出は以下のようになる．
+\begin{equation}
+E_\textrm{SiC(suface)} = E_\textrm{SiC(slab)} - n_\textrm{Si}(\mu_\textrm{Si(bulk)} + \Delta H_{f}) - n_\textrm{C} \mu_\textrm{C(bulk)} \\\\\ (\theta_\textrm{Si}=0)
+\end{equation}
+\begin{equation}
+E_\textrm{SiC(suface)} = E_\textrm{SiC(slab)} - n_\textrm{Si} \mu_\textrm{Si(bulk)} - n_\textrm{C} (\mu_\textrm{C(bulk)} + \Delta H_{f}) \\\\\ (\theta_\textrm{Si}=1)
+\end{equation}
+式7，8は，以下に示した図3からも説明できる．
+これはSi-Cの系の組成・自由エネルギー図である．
+横軸において，左端がSi100 \%，右端がC100 \%を示し，SiCは組成比1:1なので，中心に位置する．
+縦軸はエネルギーを示す．
+図中の曲線は，それぞれSiバルク，Cバルク，SiCバルクの模式的な自由エネルギー曲線を示す．
+SiCとSiが準安定平衡な状態では，SiとSiCのエネルギーがほぼ等しくなる．
+これは$\mu_\textrm{Si(bulk)}$とSiC中の$\mu_\textrm{Si}$は同じ値をとることを意味し，その時のSiC中の$\mu_\textrm{C}$の値は，SiCとSiの自由エネルギー曲線の共通接線上にくる．このとき，SiC中の化学ポテンシャルの数値は，$\mu_\textrm{Si} = \mu_\textrm{Si(bulk)}$，$\mu_\textrm{C} = \mu_\textrm{C(bulk)} + \Delta H_{f}$として計算される．
+一方，C-richな環境でも同様に，$\mu_\textrm{C} = \mu_\textrm{C(bulk)}$，$\mu_\textrm{Si} = \mu_\textrm{Si(bulk)} + \Delta H_{f}$となる事が分かる．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=12cm]{./Figure/fig3.jpg}
+\caption{Si-Cの系の組成・自由エネルギー図．横軸において，左端がSi100 \%，右端がC100 \%を示し，SiCは組成比1:1なので，中心に位置する．縦軸はエネルギーを示す．}
+\label{図3}
+\end{center}
+\end{figure}
+\paragraph{結果}
+計算結果より，Si-rich，C-rich，両環境において，SiCの多形ごと，表面ごとの表面エネルギーをそれぞれ図2にまとめた．(a)より，Si-rich環境下では，3C，4H，6Hといった多形に応じた大きな変化は見られないが(0001)面が最も安定している事が分かる．一方で，(b)より，C-rich環境下では，Si-rich同様，多形に応じた変化は見られないが，(0001)面が最も不安定である事が分かる．本計算結果は実験結果と整合しており，成長環境と表面エネルギーが，マイクロパイプ欠陥の発生を支配している事を示唆している．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=12cm,bb=0 0 2800 1000]{./Figure/gh.jpg}
+\caption{SiCの多形ごと，表面ごとの表面エネルギー}
+\label{図4}
+\end{center}
+\end{figure}

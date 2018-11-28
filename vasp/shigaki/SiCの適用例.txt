@@ -1,0 +1,7 @@
+\documentclass[12pt,a4j]{jarticle}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+\topmargin -15mm\oddsidemargin -4mm\evensidemargin\oddsidemargin
+\textwidth 170mm\textheight 257mm\columnsep 7mm
+\section{SiCの表面エネルギー}
+\subsection{背景}

@@ -1,0 +1,31 @@
+\subsection{SiC 表面における C 原子の拡散活性化エネルギー}
+\paragraph{背景}
+拡散の活性化エネルギーを求めるのも第一原理計算では比較的簡単にできる．拡散パスに対応するエネルギー曲面の中で，按点となりそうなところを探してそのエネルギー値を求めれば良い．ここでは，もっとも簡単なSiC表面のC原子の拡散過程の活性化エネルギーを求めた例を紹介する．
+
+高品質のSiC単結晶を生成する成長手法として関学大金子らによって開発された準安定溶媒エピタキシー (Metastable Solvent Epitaxy) と呼ばれるプロセスでは，溶媒の液体Siから4H-SiCが析出してくる．図\ref{SiC_Surface_Diffusion_0001surface}に示した通り，MSEで生成された 4H-SiC 単結晶の\{0001\}面のC-faceはSi-faceに比べて極端にステップが少ない．MSEにおいて両界面が接する環境相は，微量のC原子が拡散してる液体Si薄膜であり，差異はない．
+そこで両界面におけるC原子の吸着頻度，及び核生成頻度を等価と仮定すると，両面の形状は，吸着したC原子の表面拡散速度に依存すると考えられる．
+\begin{figure}[htbp] \begin{center}
+\includegraphics[width=15cm]{./yamamoto/Figure/SiC_Surface_Diffusion_0001surface.jpg} 
+\caption{4H-SiCの (a) Si-face および(b) C-faceの走査トンネル顕微鏡像．} \label{SiC_Surface_Diffusion_0001surface}
+\end{center}
+\end{figure} 
+\paragraph{手法}
+実験は固液界面での反応であるが，計算は真空との界面を想定した．
+図\ref{SiC_Surface_Diffusion_C_Sites}(a)のSi-face，及び(b)のC-faceで特徴的な3点をとり，C原子を付着させたモデルを作成した．
+第一原理計算は表面を固定し，付着させたC原子の位置を縦方向に振り，安定位置を求めた．
+そしてこれらの値からそれぞれの表面拡散経路の活性化エネルギーを求めた．
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=9cm]{./yamamoto/Figure/SiC_Surface_Diffusion_C_Sites.jpg} 
+\caption{4H-SiCの (a) Si-face (b) C-faceにおけるC原子の吸着位置．} \label{SiC_Surface_Diffusion_C_Sites}
+\end{center}
+\end{figure} 
+\paragraph{結果}
+図\ref{SiC_Surface_Diffusion_Energy_Level}はSi-face，C-faceにおけるC原子が拡散する際の活性化エネルギーの模式図である．
+ここでは，両面においてもサイト3はエネルギーレベルが高く，C原子は2$\rightarrow 1\rightarrow 2\rightarrow 1$のようにサイト3を通らずに，拡散すると予想される．またSi-faceおよびC-face共に，拡散経路における活性化エネルギーは小さく，高速に拡散する事が期待される．
+特に，C-face側ではエネルギーバリアが0.004eVとほとんどなく，さらに等価な拡散経路が多数存在するため，高速な拡散が期待でき，表面に付着した原子は即座にキンクに運ばれると予想できる．この差がfaceによるフラットさの違いの原因であることが示唆される．
+\begin{figure}[htbp] \begin{center}
+\includegraphics[width=11cm]{./yamamoto/Figure/SiC_Surface_Diffusion_Energy_Level.jpg} 
+\caption{(a)Si-face (b)C-face でのC原子の活性化エネルギーの模式図．} \label{SiC_Surface_Diffusion_Energy_Level}
+\end{center}
+\end{figure} 

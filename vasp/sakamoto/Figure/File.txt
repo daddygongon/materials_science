@@ -1,0 +1,205 @@
+\section{VASPの使用法}
+\subsection{設定ファイル}
+VASPを実行するためには次の4つのファイルを用意したディレクトリーを作る必要がある． また，実行後そのディレクトリーにアウトプットファイルが作成される．
+本節ではそれぞれのファイルについての説明を記述する．
+\subsubsection{INCAR}
+INCAR fileはVASPにおけるinput fileである．
+INCAR fileのパラメータによって第一原理計算をどのような条件下で行うかを決定する．
+例として，Siの計算を行う際のINCAR fileを図\ref{INCAR}に示した．
+この図に示されているパラメータの説明を以下で行う．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5]{./Figure/INCAR.jpg}
+\caption{POSCAE file．}
+\label{INCAR}
+\end{center}
+\end{figure}
+\begin{description}
+\item[PREC]
+計算機の精度を上げたり，下げたりする事ができる．精度を上げればその分計算時間が長くなる．
+Low，Medium，High，Normal，Accurateなどがあり，NormalとAccurateはVASP4.5以降のver.のみで使用できる．
+なお，構造最適化を目的とした計算ならばAccureteと設定するのが望ましい．
+\\default PREC=Mediam
+\item[ENCUT]
+どれだけ短波長の平面波を使うかに関連するパラメータであり，一般的にCut off energyと呼ばれる値を入力する．
+入力した値が大きいほど，短い波長の平面波も計算に考慮し，より精密な計算を行う事ができる．
+\\default ENCUT=267
+\item[NBANDS]
+バンドの数を決定するパラメータである．
+一般的には，記述しなくても適当な値をとってくれる．
+\item[IBRION]
+イオンのリラクゼーションの仕方を決定する．
+\\default
+\\if NSW=0 or 1 IBRION=-1．
+\\else IBRION=0
+\\-1 イオンをリラックスさせない． 
+\\0 分子動力学（MD:molecular dymamics）．
+\\1 準ニュートン法（quasi-Newton）．
+\\2 共役勾配法（conjugate-gradient）．
+\\3 最急降下法（Seeepest descent method）．
+\item[ISIF]
+応力テンソルをどのように計算するかを決めるパラメータである．
+forceや応力テンソル，イオンのリラックス，セルの形や体積の変化などを考慮するかしないかを決定できる．
+詳しくは表\ref{ISIF}に示す．
+応力テンソルの計算は比較的時間がかかる．
+\\default
+\\if IBRION=0 ISIF=0
+\\else ISIF=2
+\begin{table}[htbp]
+\begin{center}
+\caption{ISIF（0〜7）による相違点}
+\begin{tabular}{l|lllll}
+\hline
+\hline
+ISIF & calculate & caculate & relax & change & change \\
+& force & stress tensor & ions & cell shape & cell volume \\\hline
+0 & yes & no & yes & no & no \\
+1 & yes & trace only  & yes & no & no \\
+2 & yes & yes & yes & no & no \\
+3 & yes & yes & yes & yes & yes \\
+4 & yes & yes & yes & yes & no \\
+5 & yes & yes & no & yes & no \\
+6 & yes & yes & no & yes & yes \\
+7 & yes & yes & no & no & yes \\ \hline
+\hline
+\end{tabular}
+\label{ISIF}
+\end{center}
+\end{table}
+\item[NSW]
+イオンのステップ数を決定するパラメータである．
+構造緩和において改変重要な項目がある．
+つまり，少なすぎると，計算精度が落ち，収束せずに計算を終える場合がある．その反面大きくすると計算時間が長くなるが，収束した際にはその時点で計算は打ち切られる．
+\\default NSW=0
+\item[NELM]
+セルフコンシステントループのループの回数の上限を決定するパラメータである．
+NSWと同様に計算結果が収束すると，上限に達せずとも計算は終了する．
+\\default NELM=60
+\item[NELMIN]
+セルフコンシステントループの下限を決定するパラメータである．
+\\default NELMIN=2
+\item[EDIFF]
+電子計算の際，どの程度の差で計算を終了するかを決めるパラメータである．
+イタレーションごとに前の結果とのエネルギー差を算出し，その値がEDIFFで指定した値以下になれば，計算が終了する．
+よって，より細かいデータが必要なときにこの値を小さくすればよい．
+\\default EDIFF=1.0e-04=$10^{-4}$
+\item[EDIFFG]
+イオン計算の際に，どの程度の差で計算を終了するかを決めるパラメータである．
+イタレーションごとに前の結果とのエネルギー差を算出し，その値がEDIFFで指定した値以下になれば，計算が終了する．
+よって，より細かいデータが必要なときにこの値を小さくすればよい．
+\\default EDIFFF=EDIFF*10
+\item[VOSKWN]
+一般的な計算で，相関がある一部を補間する場合に使う，保管の方法を決定するパラメータである．
+磁性を考慮する計算の場合は1にセットしなければならない．
+\\default VOSKWN=0
+\item[ISPIN]
+スピンを考慮するどうかを指定するパラメータである．
+\\default ISPIN=1
+\\1 スピンを考慮しない．
+\\2 スピンを考慮する．
+\item[MAGMOM]
+計算対象とするモデルに含まれる各原子の磁性モーメントを指定するパラメータである．
+もし，ISPIN=1の場合は考慮しない．
+\\default
+\\if non-collinear magnetic systims MAGMOM=3*NIONS*1.0 
+\\else MAGMOM=NIONS*1.0
+
+NIONSはPOSCAR fileの原子数である．
+強磁性の場合は，MAGMOM=8*1.0 のように入力する．
+反強磁性の場合は，MAGMOM=1 -1 1 -1 1 -1 1 -1 のように入力する．
+\item[INIWAV]
+ジョブをスタートさせるときに使用する初期の波動関数を決定するパラメータである．
+またISTART=0なら意味をなさない．
+\\default INIWAV=1
+\\0 Jellium wave function simply
+\\1 wave function arrays random numbers \ \ definitely
+\item[ISTART]
+WAVECAR fileを読み込み，波動関数に使用するかを指定するパラメータである．
+\\default
+\\if WAVECAR exists ISTART=1
+\\else ISTART=0
+\\1 WAVECAR fileを読み込む．
+\\0 WAVECAR fileを読み込まない．常に初期化された波動関数を使用．
+\item[ICHARG]
+初期の電荷密度をどう構成するかを決定するパラメータである．
+\\default
+\\if ISTART=0 ICHARG=2 \\else ICHARG=0
+\\0 電子密度を初期の波動関数から導出．
+\\1 CHGCAR fileから初期のポジションを読み取り，線形的な組み合わせで新しいポジションへと外挿法から推定し導出．
+\\2 スーパーポジションを取り電化密度を導出（磁性を考慮する場合は設定）
+\item[LWAVE]
+波動関数をWAVECARに書き込むかどうか決定するパラメータである．
+.TRUE.の場合，WAVECAR fileが作成される．
+\\default LWAVE=.TRUE.
+\item[LCHARG]
+電化密度をCHGCARに書き込むかどうか決定するパラメータである．
+.TRUE.の場合はCHGCAR fileが作成される．
+\\default LCHARG=.TRUE.
+\item[ISMEAR]
+波動関数をどのような手法で表示するかを設定するパラメータである．
+\\default ISMEAR=1
+\\0 Gaussianモデル
+\\-1 fermiモデル
+\\1..N Methfessel-Paxton法
+
+金属のリラクゼーションを考慮する場合は1か2を用いるが，この二つは比較的同じような解を算出する．
+より正確に全エネルギーを計算する場合，Tetrahedron with Blochol correction（-5）を推奨する．
+しかし，この手法は力に対する評価が正しく行えないことがある．
+そのため，構造最適化計算やPhonon計算の場合には，Methfessel-Paxtonを推奨する．
+半導体，もしくは絶縁体の場合，Methfessel-Paxtonでは，電子の占有数が2以上になる場合がある．
+そのため，Tetrahedron with Blochol correctionを推奨する．
+k点数が少ない場合は，Gaussianを推奨する．
+\item[LREAL]
+積分法を決定するパラメータである．
+Real spaceとReciprocal spaceは積分の方法が異なる．
+大きな系（格子定数が5$\rm{\AA}$以上）のときは，Real spaceの方が，計算が速い．
+小さな系の場合には，Reciprocal spaceで計算することを推奨する．
+高精度の計算を行いたい場合は，Reciprocal spaceで計算することを推奨する．
+\\default LREAL = .FALSE.
+\\.FALSE. Reciprocal spaceを使用．
+\\.TRUE. Real spaceを使用．
+\end{description}
+\subsubsection{POSCAR}
+POSCAR fileはモデルを構築する際や，セルの形状やモデル内の各原子の原子位置を決定し，x，y，z軸のベクトルや原子配列，原子緩和などを指定できるファイルである．
+図\ref{POSCAR1}には，Siのダイヤモンド構造のPOSCAR fileを示した．
+実線で囲まれた部分は，格子の倍数である．
+この倍数を1.1や1.2に変更する事で，基本並進ベクトルはすべて1.1倍，1.2倍に変更され，格子を膨張させる事ができる．
+点線で囲まれた部分は基本並進ベクトルで，1行目，2行目，3行目はそれぞれx軸，y軸，z軸のベクトルを表している．
+破線で囲まれた部分は原子数を表している．
+太線で囲まれた部分はそれぞれの原子の原子座標を表している．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=12.0cm,height=12.0cm,bb=0 0 700 700]{./Figure/POSCAR1.jpg}
+\caption{POSCAE file．}
+\label{POSCAR1}
+\end{center}
+\end{figure}
+
+次に，各原子を個別に緩和させたい場合のPOSCAR fileを図\ref{POSCAR2}に示した．
+先ほど示したfileとの違いは，各原子の原子座標の横に実線で囲まれた部分が追加されていることである．
+この実線で囲まれた部分を変更する事で，それぞれの原子のx軸方向，y軸方向，z軸方向にそれぞれ緩和させるかを決める事ができる．
+例えばこの図に示された点線で囲まれた部分は緩和を行わないが，破線で囲まれた部分はz軸方向にだけ緩和を行う．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=12.0cm,height=12.0cm,bb=0 0 700 700]{./Figure/POSCAR2.jpg}
+\caption{各原子ごとに厳密な緩和を実現するPOSCAE file．}
+\label{POSCAR2}
+\end{center}
+\end{figure}
+\subsubsection{KPOINTS}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=12.0cm,height=12.0cm,bb=0 0 700 700]{./Figure/POSCAR2.jpg}
+\caption{各原子ごとに厳密な緩和を実現するPOSCAE file．}
+\label{POSCAR2}
+\end{center}
+\end{figure}
+\subsubsection{POTCAR}
+各原子のポテンシャルを明記したファイルである．
+POSCARで構築した原子配列にかんしてどの
+\subsubsection{OUTCAR}
+OUTCAR fileは計算終了後の作成されるfileである．
+OUTCAR fileには多くの有用なデータが出力される．
+例えば，計算終了後のフリーエネルギー，基本並進ベクトル，各座標座標データである．
+それぞれfree energy TOTEN，VOLUME and BASIS-vectors are now内のdirect lattice vectors，POSITIONに出力されている．

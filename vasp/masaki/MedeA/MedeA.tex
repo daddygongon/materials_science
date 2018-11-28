@@ -1,0 +1,58 @@
+\subsection{GUIでVASPの実行，MedeAの使用}
+\subsubsection{MedeAの基本環境}
+MedeAは，計算による材料設計のための統合支援ソフトウェアである．原子サイズのシミュレーションを基にして，金属，半導体，セラミックス，酸化物など主に無機結晶をターゲットとして研究に便利なツールを実装している．グラフィカルユーザインタフェース（GUI）および計算プログラムは，すべて Windows システム上で稼働し，「モデル構造の構築，編集，計算の実行，結果」といった一連の作業を 1 つのプラットフォーム上で行うことができる．
+\subsubsection{計算の流れ}
+MedeAでは，基本的に以下の流れに沿って計算を進める．
+\begin{description}
+\item[1.モデル構築] 
+\item[2.計算設定]
+\item[3.計算実行] 
+\item[4.計算結果の表示] 
+\end{description}
+次にそれぞれのプロセスで行う実際の作業を簡単に記す．
+\begin{description}
+\item[1.モデル構築] 
+ダイヤモンド構造のSiのモデルをMedeAで構築したものを 図 \ref{str} に示す．MedeAはウィンドウ上で計算対象となる結晶モデルの元素記号や格子定数等を設定し，モデルの構築・編集ができる．新しく結晶モデルを作成すること，また，データベースから読み込んだ結晶モデルを編集することも可能である．更に，スーパーセルや表面モデル，点欠陥モデルを作成するためのツールも用意されている．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=14.0cm,bb=0 0 1200 700]{./masaki/MedeA/Figure/Si_structure01.jpg}
+\caption{計算に必要なパラメータの設定（構造緩和，DOSやバンド構造出力等の設定）．}
+\label{str}
+\end{center}
+\end{figure}
+\newpage
+\item[2. 計算設定]
+MedeAにはVASPの計算エンジンがあり，インタフェースが用意されている．図\ref{parameter01}， 図\ref{parameter02} に示すように，インタフェースから構築したモデルに対して，計算の設定を行うことができる．例えば，構造緩和の指定，DOSやバンド構造の出力， Energy cut-off等がある．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=16.0cm,bb=0 0 1000 400]{./masaki/MedeA/Figure/parameter_01.jpg}
+\caption{計算に必要なパラメータの設定（構造緩和，DOSやバンド構造出力等の設定）．}
+\label{parameter01}
+\end{center}
+\end{figure}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=16.0cm,bb=0 0 1000 400]{./masaki/MedeA/Figure/parameter_02.jpg}
+\caption{計算に必要なパラメータの設定（k-mesh等の設定）．}
+\label{parameter02}
+\end{center}
+\end{figure}
+\item[3.計算実行]
+構築したモデルに対して，計算設計が完了したら，計算を実行する．MedeAには，JobServer / TaskServer とうジョブ管理システムが導入されており，これらを活用して，計算ジョブの管理を行う．これにより，計算ジョブをネットワーク経由で，他のマシンに投入することが可能である．
+\item[4.計算結果の表示]
+実行した計算が終了すると，計算結果は JobServer に集約される．JobServerへのアクセスはウェブベースで行う．ブラウザ上に，これまでの計算を一覧表示したり，そこからテキストベースの計算結果を参照することができる．また， 図\ref{dos} ,  図\ref{band_structure}に示すように，DOS，バンド構造図をグラフィック表示することができる．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=13.0cm,bb=0 0 900 800]{./masaki/MedeA/Figure/dos_01.jpg}
+\caption{SiのDensity of States．}
+\label{dos}
+\end{center}
+\end{figure}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=13.0cm,bb= 0 0 800 600]{./masaki/MedeA/Figure/band_structure_01.jpg}
+\caption{Siのバンド構造．}
+\label{band_structure}
+\end{center}
+\end{figure}
+\end{description}

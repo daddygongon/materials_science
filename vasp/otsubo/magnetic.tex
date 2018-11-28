@@ -1,0 +1,84 @@
+\subsection{磁性材料でのspin計算}
+\paragraph{磁性}
+磁性材料を原子レベルから理解するには上向きスピン(spin-up)と下向きスピン(spin-down)の状態密度図をみるのが基本である．図{\ref{dos}}は代表的な強磁性体であるbcc-Feの状態密度で，3d金属に特徴的な箱形のDOSがほぼそのまま並行移動した形状を示している．破線で示したFermi準位より下側のエネルギーレベルに電子が入っているが，spin-up側に多く入って，強磁性を示すことが理解できる．
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.3,bb=0 0 700 600]{./otsubo/Figure/dos.jpg}
+\caption{強磁性を示すbcc-Feの上向きスピン(spin-up)と下向きスピン(spin-down)の状態密度図．}\label{dos}
+\end{center}
+\end{figure}
+\paragraph{強磁性，反強磁性}
+図{\ref{fe}}(a)のようにスピンが平行にならんでいる物質が強磁性で，遷移金属のFe，Ni，Coや希土類金属のGdもしくはErOのような酸化物などある．一方，反強磁性体は図\ref{fe}(b)に示した通り，各サイトで交互にスピンが反平行に並び，合成された磁気モーメントが0となる．MnF$_2$,MnO$_2$,FeO,CoOなどがある．異なるサイトでのspin-DOSを表示させると上向きスピンと下向きスピンが逆転したような図となる．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.6,bb=0 0 600 300]{./otsubo/Figure/magne.jpg}
+\caption{(a)強磁性体，(b)反強磁性体のモデル．}
+\label{fe}
+\end{center}
+\end{figure}
+\newpage
+ \paragraph{計算実例}
+磁性を考慮した計算のためには，INCARファイルにおいて，VOSKOWN=1，ISPIN=2，ICHARG=2とし，MAGMONで原子の磁気モーメントを設定する．
+\paragraph{VOSKOWN}
+VASPは普通，交換相関汎関数の相関部分は，一般的な補間公式を使う.
+VOSKOWNが1にセットされた場合，Vosko-Wilk-Nusairの公式で内挿する．これは，通常，磁性モーメントや磁性エネルギーの計算を向上させる．GGAと併用のこと．
+\begin{quotation}
+\begin{verbatim}
+default VOSKOWN=0
+0　一般的な補間公式
+1　Vosko-Wilk-Nusairの公式で内挿
+\end{verbatim}
+\end{quotation}
+\paragraph{ISPIN}
+スピンを考慮するどうかを指定するパラメータ．
+\begin{quotation}
+\begin{verbatim}
+default ISPIN=1
+1　スピンを考慮しない
+2　スピンを考慮する
+\end{verbatim}
+\end{quotation}
+\paragraph{ICHARG}
+初期の電荷密度をどう構成するかを決定するパラメータ．
+\begin{quotation}
+\begin{verbatim}
+default
+if ISTART=0 ICHARG=2
+else ICHARG=0
+0 電子密度を初期の波動関数から導出
+1 CHGCAR fileから初期のポジションを読み取り，線形的な組み合わせで新しいポジションへと外挿法から推定し導出
+2 スーパーポジションを取り電荷密度を導出（磁性を考慮する場合は設定）
+\end{verbatim}
+\end{quotation}
+\paragraph{MAGMON}
+計算対象とするモデルに含まれる各原子の磁性モーメントを指定するパラメータ．ISPIN=1の場合は考慮しない．
+\begin{quotation}
+\begin{verbatim}
+default
+if non-collinear magnetic systims MAGMOM=3*NIONS*1.0
+else MAGMOM=NIONS*1.0
+   NIONSはPOSCARファイルに表示されている原子の数．
+\end{verbatim}
+\end{quotation}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5,bb=0 0 600 600]{./otsubo/Figure/Fe_INCAR.jpg}
+\caption{(a)強磁性体と(b)反強磁性体のINCARファイル．}
+\label{feincar}
+\end{center}
+\end{figure}
+MAGMONのパラメータ記法は，POSCARファイルにある原子の磁気モーメントを順番に記述している. 例えば，図\ref{feincar}のように 
+\begin{quotation}
+\begin{verbatim}
+MAGMON=5 4*-5 
+\end{verbatim}
+\end{quotation}
+と書かれている場合，図{\ref{magmon}}のようなPOSCARに記述された原子の磁気モーメントは一番上が5，次から4つがそれぞれ-5を意味する.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5,bb=0 0 600 400]{./otsubo/Figure/Fe_poscar.jpg}
+\caption{POSCARファイル中の原子座標}\label{magmon}
+\end{center}
+\end{figure}
+%正しい計算が実行されたかどうかの確認のために，状態密度を表示することは重要である．そこで，次節の内容でもある電子状態状態密度の中に磁性の状態密度を表示させた．

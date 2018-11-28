@@ -1,0 +1,58 @@
+\subsection{SiC極性表面のエネルギー計算}
+\subsubsection{表面モデル}
+第一原理計算で単純な表面エネルギーを求めるのは容易である．完全結晶の上下に真空層を置き，ある方位を持った表面を２枚作る．これは，周期的境界条件を課した時，厚板のような形状となることからslabモデルと呼ばれる．そのような系のエネルギーと，原子数をそろえた完全結晶のそれとの差から表面積で割れば，表面エネルギーが算出できる．表面再配列(surface reconstruction)の影響は，金属ではそれほどではないが，半導体では大きい．また，化合物の場合は原子数を合わせることが困難な状況が存在する．ここでは，SiCの(0001)面を対象として，化学ポテンシャルを用いた見積もり方を紹介する．
+\subsubsection{被覆率と化学ポテンシャル}
+SiCは$\langle 0001\rangle$方向に向かって，Siだけの面，Cだけの面が交互に配列した構造をとる．
+この構造では(0001)面と(000$\bar{1}$)面の終端面の構成元素の組み合わせにより，表面エネルギーが変わってくる．
+この様子を模式的に示すと図\ref{Fig:SlabModel}のようになり，表面を覆うSi原子の割合(被覆率，coverage ratio)$\theta_\textrm{Si}$によってまったく違った構造を取れることがわかる．
+現物の表面においても化合物表面がおかれた環境によって，どのような構造を取るかは非常に多様である．
+本研究では図\ref{Fig:SlabModel}のようなスラブモデルを作成し，それぞれの表面エネルギーを計算した．
+$\theta_\textrm{Si}=0.5$でないモデルでは，スラブ中のSi原子数とC原子数の比が1:1でなくなる．
+その場合，基準とする化合物だけからでは表面エネルギーを見積もるために必要な適切な引き算ができない．
+この状態での表面エネルギー計算のためには，化学ポテンシャルに依存した計算法を利用する必要がある．
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=11cm]{./shigaki/Figure/fig2.jpg}
+\caption{表面を覆うSi原子の割合を$\theta_\textrm{Si}$とし，Si-rich，C-richの環境を考慮したスラブモデルの模式図．なお$\theta_\textrm{Si}$=0.5の場合，図のようにa-typeとb-typeのモデルを作成した．}
+\label{Fig:SlabModel}
+\end{center}
+\end{figure}
+
+化学ポテンシャルの復習から始めよう．化学ポテンシャル$\mu$は原子あたりの自由エネルギーを意味している．Si-C系の組成--自由エネルギーが図\ref{Fig:SiCSytemFreeEnergy}のようになっていると仮定しよう．横軸において，左端がSi100\%，右端がC100\%を示し，SiCは組成比1:1なので，中心に位置する．縦軸はエネルギーを示す．図中の曲線は，それぞれSiバルク，Cバルク，SiCバルクの模式的な自由エネルギー曲線を示す．SiCは組成幅のないline compoundであるが，細かく見れば図に書いた通り，幅を持ち，先端では曲率を持っている．すると，SiCとSi完全結晶が平衡した状態では，2相の自由エネルギー曲線に破線Aで示した共通接線が引かれる．この両端にそれぞれ相に含まれる原子の化学ポテンシャル($\mu_\textrm{Si},\mu_\textrm{C}$)が位置することになる．SiCはSiと平衡していることからこれをSi-rich環境と称する．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=12cm]{./shigaki/Figure/SiCChemicalPotential.jpg}
+\caption{Si-Cの系の組成・自由エネルギー図．横軸において，左端がSi100 \%，右端がC100 \%を示し，SiCは組成比1:1なので，中心に位置する．縦軸はエネルギーを示す．}
+\label{Fig:SiCSytemFreeEnergy}
+\end{center}
+\end{figure}
+
+このとき，SiC中の化学ポテンシャルの値は，
+\begin{eqnarray}
+\mu_\textrm{Si(Si-rich)} &=& \mu_\textrm{Si(bulk)} \nonumber \\
+\mu_\textrm{C(Si-rich)} &=& \mu_\textrm{C(bulk)} + \Delta H_\textrm{f}
+\end{eqnarray}
+として計算される．ここで$\Delta H_\textrm{f}$はSiCの生成エネルギー[eV/SiC pair]，$\mu_\textrm{SSi(bulk)}$はSiバルクの化学ポテンシャル，$\mu_\textrm{C(bulk)}$はCバルクの化学ポテンシャルを意味している．
+一方，C-richな環境でも同様に，
+\begin{eqnarray}
+\mu_\textrm{C(C-rich)} &=& \mu_\textrm{C(bulk)} \nonumber \\
+\mu_\textrm{Si(C-rich)} &=& \mu_\textrm{Si(bulk)} + \Delta H_\textrm{f}
+\end{eqnarray}
+となる事が分かる．
+
+これらの化学ポテンシャルの概念を反映させる事により，Si-richとC-rich環境それぞれの場合の表面エネルギー$E_\textrm{SiC(suface)}$は，SiおよびCの原子数を$n_\textrm{Si}, n_\textrm{C}$として，
+\begin{eqnarray}
+E_\textrm{SiC(suface)} &=& E_\textrm{SiC(slab)} - n_\textrm{Si} \mu_\textrm{Si(bulk)} - n_\textrm{C} (\mu_\textrm{C(bulk)} + \Delta H_{f}) \hspace{5mm} (\textrm{Si-rich})
+\nonumber \\
+E_\textrm{SiC(suface)} &=& E_\textrm{SiC(slab)} - n_\textrm{Si}(\mu_\textrm{Si(bulk)} + \Delta H_{f}) - n_\textrm{C} \mu_\textrm{C(bulk)} \hspace{5mm} (\textrm{C-rich}) 
+\end{eqnarray}
+のように求められる．ここで注意してほしいのは，被覆率$\theta_\textrm{Si}$とC-rich, Si-richとは関係ないことである．つまり，極端に言えば，C-richにおいてもSiで覆われた方がエネルギーが低くなることもあり得，一般に表面エネルギーは被覆率$\theta_\textrm{Si}$に依存して変化する関数となる．
+
+\paragraph{計算結果}
+Si-rich，C-rich両環境において，SiCの多形ごと，表面ごとの表面エネルギーをそれぞれ図\ref{Fig:SurfaceEnergy}にまとめた．(11$\bar{2}$0), (1$\bar{1}$00)面は(0001)面に直交した面で，SiとCが同数からなる非極性界面である．(a)より，Si-rich環境下では，3C，4H，6Hといった多形に応じた大きな変化は見られることなく，(0001)面が最も安定している事が分かる．一方で，(b)より，C-rich環境下でも，Si-rich同様に多形に応じた変化は見られないが，(0001)面が最も不安定である事が分かる．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=16cm]{./shigaki/Figure/gh.jpg}
+\caption{SiCの多形ごと，表面ごとの表面エネルギー．}
+\label{Fig:SurfaceEnergy}
+\end{center}
+\end{figure}

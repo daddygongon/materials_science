@@ -1,0 +1,59 @@
+\subsection{SiO$_{2}$多形の高圧平衡：E-V曲線からの高圧平衡算出}
+\paragraph{背景}
+VASPで求めたE-V曲線から２相が高圧で平衡する時の圧力を見積もる．
+
+SiO$_{2}$は種々の多形をとることが知られている．図\ref{polymorphism}はSiO$_{2}$の温度圧力状態図である．これら高温，高圧相は，一度できてしまうと常温常圧でも安定に存在する場合がある．Stishoviteを除いた多形においてはシリコンを中心としたSiO$_{4}$四面体を作る．この局所的な相似性にも関わらず，密度では約2倍，体積弾性率は約18倍もの広範囲にも及ぶことがSiO$_{2}$の特徴でもある\cite{Moriguchi}．また，高温で安定なCristobalite，Tridymiteの2つの多形は，急冷却することで低温では準安定相として存在することが確認されている\cite{Sunagawa}.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5,angle=360]{./tsukahara/Figure/takei.jpg}
+\caption{SiO$_{2}$多形の状態図．}
+\label{polymorphism}
+\end{center}
+\end{figure}
+
+\paragraph{計算結果}
+図\ref{polymorphismEV}(a)は，VASPを用いて描いた，各SiO$_{2}$多形の基底状態におけるE-V曲線である．縦軸，横軸はそれぞれ，一原子あたりのエネルギー，体積を表している．高圧で安定なStishovite以外の構造はほぼ同じエネルギーで最安定となった．
+\begin{figure}[htbp]\begin{center}
+\includegraphics[scale=0.8,angle=360]{./tsukahara/Figure/SiO_E-Vcurve.jpg}
+\caption{SiO$_{2}$多形のE-V曲線．（a）多形8種のE-V曲線．（b）stishoviteとcoesite，coesiteとlow quartzの共通接線．}
+\label{polymorphismEV}
+\end{center}
+\end{figure}
+\subsubsection{２相間の平衡圧力の求め方}
+VASPで求めたE-V曲線から２相が高圧で平衡する時の圧力を見積もる．まず熱力学の第一法則より，内部エネルギー変化{\it dE}は，系に取り込まれた熱 ${\delta}Q$から系のした仕事 ${\delta}W$をひいて
+\begin{equation}
+dE={\delta}Q-{\delta}W
+\end{equation}
+これは可逆な断熱過程では${\delta}Q=0$および${\delta}W_{\textrm rev}=PdV$であるから
+\begin{equation}
+dE=-PdV
+\end{equation}
+よって，圧力{\it P}は
+\begin{equation}
+\label{press2}
+P=-\frac{dE}{dV}
+\end{equation}
+で求めることができる．この式 (\ref{press2})より，E-V曲線の傾きが圧力を示していることがわかる．つまり，2本のE-V曲線があるとき，その共通接線の傾きは相転移時の圧力と等しい．
+
+そこで図 \ref{polymorphismEV}(b)のようにStishovite，Coesite，Low QuartzのE-V曲線を取り出して，それぞれのE-V曲線の共通接線の傾きを測った．ここで共通接線の単位は$\textrm{eV/{\AA}}$である．これをGPaに変換するには
+\begin{equation}
+\label{GPa}
+1[\textrm{GPa}]=0.00624150948 [\textrm{eV/{\AA}}]
+\end{equation}
+を用いる．StishoviteとCoesite，CoesiteとLow QuartzのE-V曲線の共通接線の傾き-0.047,-0.025を，この式(\ref{GPa})に基づいて変換した結果は表\ref{press}のようになった．計算結果は，文献値と比較的よく一致している．
+\begin{table}[h]
+\begin{center} 
+\caption{2相共存圧力．} 
+\label{press}
+\begin{tabular}{ccc} \hline
+ &計算結果[GPa]&文献値[GPa]\cite{Kuroda}\\ \hline 
+Stishovite--Coesite&7.5&10.0\\ \hline 
+Coesite--Low Quartz&4.5&3.5\\ \hline 
+\end{tabular} 
+\end{center} 
+\end{table} 
+\begin{thebibliography}{3}
+\bibitem{Moriguchi} 森口 晃治, 関 彰，「シリコンー酸素間の局所相互作用から見たバルク物性ー」, (住友金属　1995)．
+\bibitem{Sunagawa} 砂川 一郎，「結晶　成長，形，完全性」,(共立出版　2003)．
+\bibitem{Kuroda} 黒田 吉益，諏訪 兼位，「偏光顕微鏡と岩石鉱物」,(共立出版　1968)．
+\end{thebibliography}

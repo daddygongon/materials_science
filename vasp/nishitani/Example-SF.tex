@@ -1,0 +1,35 @@
+\subsection{P，Bを含んだSi結晶の積層欠陥エネルギーの第一原理計算}
+
+\paragraph{背景}
+欠陥エネルギーの中で第一原理英計算が比較的簡単な2次元欠陥の積層欠陥エネルギーに適用した例を紹介する．
+
+最近，リン(P)をドープしたSi単結晶中の転位芯の分解挙動を，大野らが電子顕微鏡によって詳しく観察した[1]．図\ref{Fig:Ohno-1}は模式図で示した転位の分解挙動のweek beam法による電子顕微鏡像，この幅を測定し集計したヒストグラム，および，それから求めたstacking fault energyのdopant濃度依存性を示している．それによるとPのdopant濃度が増えるにしたがって転位芯の分解幅が増加する，つまりstacking fault energyが減少する傾向を示している．一方，Bをdopantとした場合は，このような依存性は見られない．これは，Pの積層欠陥への拡散によると考えられる．この仮説を確認するため，第一原理計算で積層欠陥の振る舞いを調べた．
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=5in]{./nishitani/Figure/Si+P-1.eps}
+\caption{模式図で示したような転位の分解挙動のweek beam法による電子顕微鏡像，この幅を測定し集計したヒストグラム，および，それから求めたstacking fault energyのdopant濃度依存性．}
+\label{Fig:Ohno-1}
+\end{center}\end{figure}
+
+\paragraph{計算モデル}
+図\ref{Fig:Ohno-2}の左パネルに示すような積層欠陥を含んだ16層で構成する長周期モデルを作った．ダイアモンド構造の四面体で$2 \times 2 \times 16$で，No.10siteとNo.11siteの間に四面体構造を崩さないglide-setのstacking faultが入っている．第一原理計算はVASPで，カットオフエネルギー1000eV,　PAW近似を用いた．PおよびBを各層に配置してそのエネルギーを調べた．
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=4in]{./nishitani/Figure/Si+P-2.eps}
+\caption{原子配置の模式図と，それぞれの層のSi一原子をPと置換した場合のエネルギー変化．}
+\label{Fig:Ohno-2}
+\end{center}\end{figure}
+
+\paragraph{結果}
+図\ref{Fig:Ohno-2}の右パネルは第1層から第16層を横軸にとり，それぞれのstackingのSi1原子をPに置き換えた場合の計算結果である．9-12層はcubicの積層からhexagonalの積層に変化している．縦軸にPをそれぞれの層で置換したモデル(ESF-Si(P))と，Pをいれていないモデル(ESF-Si)とのエネルギー差を表示している．これから明らかなように，10,11層の積層欠陥領域にPをおいた場合に，エネルギーは0.1eV程度下がっている．
+
+一方Bに関しても同様の計算を行った．その結果図\ref{Fig:Ohno-3}に示した通り，Bが積層欠陥領域に入った場合は，完全結晶領域にいるよりもエネルギーが高くなる傾向があった．これより，Pは積層欠陥領域に濃化する傾向が強く，さらに積層欠陥エネルギーを下げる傾向があることがわかった．一方，Bに関してはこのような傾向は見られなかった．これらの結果は，実験結果と整合しており，積層欠陥エネルギーはPが濃化することによって減少し，Bの場合は，積層欠陥領域から遠ざかり，エネルギー変化を与えないことが，第一原理計算によって判明した．
+
+
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=4in]{./nishitani/Figure/Si+P-3.eps}
+\caption{原子配置の模式図と，それぞれの層のSi一原子をBと置換した場合のエネルギー変化．}
+\label{Fig:Ohno-3}
+\end{center}\end{figure}
+
+[1] Y. Ohno, T. Taishi, Y. Tokumoto, and I. Yonenaga, J. Appl. Phys. 108(2010), 073514.

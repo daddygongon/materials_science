@@ -1,0 +1,98 @@
+\subsection{Phonon計算}
+\if0
+まず擬調和振動子近似の元になる調和振動子近似を考える．
+これは固体物理学や振動・波動の教科書にある通り，固体原子があるサイトの周りに調和振動する振動子として釘付けされているとする…のようなアインシュタイン格子である．
+固体においては配置と振動の時定数が極端に異なり，それらを独立して取り扱うことが可能となる．
+アインシュタインモデルやデバイモデルが成功している理由がこの近似の正しさを示している．
+ただし，純粋な調和振動子近似となるアインシュタインモデルでは，熱振動は進行波ではなく，バネ定数を$k$，原子量を$M$としたとき，$\omega=\sqrt{k/M}$で定まる振動数で一点で振動する定在波とみなしている．
+これは，…に実線のカーブで示した現実のフォノン状態密度を，灰色直線で示したただ一つの振動数で近似することに対応している．
+また，熱膨張や振動の異方性なども無視している．
+
+実際に使われている調和振動子近似では，もう少し個々の固体の物性を取り入れるように改良されている．
+まず，もっとも単純な調和振動子近似であるMoruzziらの取り扱いでは，振動子の分散にデバイモデルを用い，エネルギー-体積曲線から求まる方さを目安に…の破線で示したごとくフォノン状態密度を近似する．
+さらにエネルギー-体積曲線の非調和性を表す高次項から，熱膨張効果を取り入れている．
+
+さらに，精度の高いモデルでは，フォノン状態密度を基底状態のフォノン分散曲線から求める．
+これはphonon-DOS法と呼ばれている．
+これには原子一個を直接微小量だけ動かしたときのエネルギー変化から，原子間の力定数を求める直接法（direct method）のパッケージがParlinskiらによって開発されている．
+フォノン分散を求める単純な手法であるfrozen phonon法では，波数に従って何種類ものサイズの違うスーパーセルを用意し，そこに導入した凍結した波（frozen wave）に従った位置に原子を配置し，エネルギーを求めるため，計算数が非常に多くなる．
+
+力定数から求める方法では対称性の取り扱いが複雑だが，セルサイズによる計算精度に気をつければ，高速に信頼性の高いフォノン分散曲線が求まる．
+
+フォノン状態密度をリカージョン法で求める手法がSuttonらによって提案されている．
+そこでは着目している原子から始めて，徐々に外側の原子の力定数を連分数で取り入れる．
+最も簡単な近似では，再近接原子との力定数の対角項だけとなり，…の破線で示したような単純な形をしたフォノン状態密度を仮定することになり，比較的精度良く計算できる．
+
+いずれにしろ，調和振動子近似では固体の振動効果の重要な寄与となる熱振動効果，硬度の軟化などを，計算精度の高い第一原理計算と組み合わせて，求めることが可能である．
+\newpage
+\fi
+固体において，系のエネルギーは原子同士の相互作用，つまり原子間距離に依存することは周知の事実である．
+各原子同士が近づきすぎると電子どうしの反発力が強くなり，エネルギーは上昇する．
+こういった性質から，原子間のボンドをばねとみなすモデルが提唱され，それをばねモデルという（図\ref{Spring_Einstein_Models}(a)）．
+ところがこのモデルでは有限温度効果による結晶の振る舞いを正しく記述できないという問題があった．
+そこで，その問題を解決するもっとも単純なモデルとしてEinsteinモデル（図\ref{Spring_Einstein_Models}(b)）がある\cite{1}．
+
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=8cm]{./Figure/Spring_Einstein_Models.jpg}\caption{(a) ばねモデル (b) Einsteinモデル．} \label{Spring_Einstein_Models}
+\end{center}
+\end{figure} 
+固体原子があるサイトの周りに調和振動する振動子として釘付けされているとするEinstein格子は，擬調和振動子近似のもととなる調和振動子を表している．
+固体においては配置と振動の時定数が極端に異なり，それらを独立して取り扱うことが可能となる．
+純粋な調和振動子近似となるEinsteinモデルでは，熱振動は進行波ではなく，バネ定数を$k$，原子量を$M$としたとき，$\omega=\sqrt{k/M}$で定まる振動数で一点で振動する定在波とみなしている．
+これは，図\ref{Phonon_Dispersion_DOS}に実線のカーブで示した現実のフォノン状態密度（Phonon-DOS）を，灰色直線で示したただ一つの振動数で近似することに対応している．
+このEinsteinモデルの他に，図\ref{Phonon_Dispersion_DOS}の点線で示したDebyeモデルはPhonon分散曲線を利用せずにPhonon-DOSを近似する．
+なお，破線で示したリカージョン法は次に詳述するPhonon-DOS法の一つである\cite{2}．
+
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=8cm]{./Figure/Phonon_DOS.jpg} 
+\caption{アルミニウムにおけるPhonon-DOSと様々な手法によるPhonon-DOSの近似．} \label{Phonon_DOS}
+\end{center}
+\end{figure} 
+
+ではここで，\ref{ZrCr2Laves相のphonon計算による高温安定性}節，\ref{SiC結晶多形における熱膨張率}節で用いたPhonon-DOS法を紹介する．Phonon-DOS法とは基底状態におけるPhonon分散曲線（図\ref{Phonon_Dispersion_DOS}(a)）を求め，それを積分することによってPhonon-DOSを導出する手法である．
+Phonon-DOSは系の自由エネルギーを求めるのに有用であり，自由エネルギーの有用性は\ref{ZrCr2Laves相のphonon計算による高温安定性}節の議論で十分であろう．
+自由エネルギーとPhonon-DOSの関係を式\ref{Phonon_DOS_Method}に示した．
+$\omega$はk-spaceにおける振動数を示し，$n(\omega)$はその時のPhonon-DOSを示す．
+これからわかるとおり，自由エネルギーはPhonon-DOSを含めた数式で表すことができる．
+なお，$E(a)$は系の静止エネルギー，$a$はそのときの格子定数を示し，$k_{\rm B}$はボルツマン定数，$T$は温度である．
+$\hbar$はプランク定数$h$を$2\pi$で割った定数である\cite{3}\cite{4}．
+
+\begin{equation}
+F(a,T)=E(a)+k_{\rm B}T\int_{0}^{\infty}n(\omega){\rm ln}\left[2{\rm sinh}\left(\frac{\hbar \omega}{2k_B T}\right)\right]
+\label{Phonon_DOS_Method}
+\end{equation}
+
+\ref{ZrCr2Laves相のphonon計算による高温安定性}節，\ref{SiC結晶多形における熱膨張率}節で用いたPhonon-DOS法は直接法（direct method）と呼ばれるが，これは単純に一個の原子を平衡位置から微少量だけ動かし，その時のエネルギー変化を微分し，原子間の力定数を求める．
+そしてその力定数から振動数$\omega$を算出し，Phonon分散曲線を描き，Phonon-DOSを導出する．
+
+式\ref{Phonon_DOS_Method}で明らかなようにこのままでは熱振動効果は取り入れられていない．
+そこでPhonon-DOS法と，計算精度の高い第一原理計算を組み合わせることで，有限温度効果を加味した第一原理計算が実現でき，熱膨張や体積弾性率などの諸物性を再現することが可能となる．
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=11cm]{./Figure/Phonon_Dispersion_DOS.jpg} 
+\caption{アルミニウムにおける(a) Phonon分散曲線 (b) Phonon-DOS．} \label{Phonon_Dispersion_DOS}
+\end{center}
+\end{figure} 
+
+\begin{thebibliography}{9}
+\bibitem{1}
+西谷滋人著（2006），『固体物理の基礎』，森北出版株式会社．
+\bibitem{2}
+西谷滋人，竹田諒平，石井英樹，山本洋佑，金子忠昭，日本金属学会誌，73巻8号（2009），566-570．
+\bibitem{3}
+C.Kittel著，宇野良清，津屋昇，新関駒二郎，森田章，山下次郎訳（2005），『キッテル　固体物理学入門』，丸善株式会社．
+\bibitem{4}
+沼居貴陽著（2005），『固体物理学演習　キッテルの理解を深めるために』，丸善株式会社．
+\end{thebibliography}
+\if0
+%Bは体積弾性率，$\omega_K$の体積依存性を$\delta \omega/\omega=-\gamma \Delta$となる．
+%なお$\gamma$はグリュナイゼン定数という．
+%$\gamma$がモードKによらなければ$B\Delta=\gamma\sum\frac{1}{2}\hbar\omega{\rm coth}(\hbar \omega / 2k_BT)$を満たす$\Delta$で$F$が極小となる．
+%また熱エネルギー密度を用いると$\Delta=\gamma $U$(T)/B$
+\begin{equation}
+F(\Delta,T)=\frac{1}{2}B\Delta^2+k_B T\sum {\rm ln}\left[2{\rm sinh}\left(\frac{\hbar \omega_K}{2k_B T}\right)\right]
+\label{Phonon_DOS_Method}
+\end{equation}
+\fi

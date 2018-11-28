@@ -1,0 +1,67 @@
+\subsection{核生成の活性化エネルギー}
+
+\paragraph{背景}
+拡散の活性化エネルギーと違って，核生成の活性化エネルギーは原理自身が大変難しい．ここでは，熱統計力学と組み合わせて，固々反応の析出過程で算出した例を紹介する．
+
+古典的核生成論は，多くの教科書に出てくるとおり，1次の相転移において新相の芽(embryo)が核として成長する前段階では系のエネルギーは正となり，それを超えるための活性化過程(activation process)があるとする．エンブリオを半径$r$の球状として，そのエネルギーを表現する式，
+\begin{eqnarray}
+\Delta F &=& -\frac{4}{3}\pi r^3 \epsilon(V) + 4 \pi r^2 \sigma(S) \nonumber \\
+&=& - \epsilon(n) n  + n^{\frac{2}{3}} \sigma(n) 
+\label{Eq:Nucleation}
+\end{eqnarray}
+において，$r$が小さいと$r^2$を含む表面エネルギー$\sigma$による右辺第二項が，$r^3$を含む体積エネルギー$\epsilon$による第一項を優越し，図\ref{Fig:Nucleation-1}の左パネルに示すように，成長初期には$\Delta F$が上昇し，エネルギーに山が現れるとされている．半径$r$に代わってクラスターサイズ$n$でとっても同じような式となる．この核生成の自由エネルギーを，金属系材料において一般的な析出過程を対象にして，求めようというのが本節での取り扱いである\cite{Nishitani07}．析出処理は状態図からは図\ref{Fig:Nucleation-1}の右パネルに示すようなものである．高温の焼き入れ温度(quenching temp.; $T_\textrm{q}$)の単相領域に保持された試料を，低温に焼き入れた後，時効温度(annealing temp.;$T_\textrm{a}$)の2相領域で保持することに相当する．これによって溶質(solute)が過飽和(super saturation)となり，固溶限(solubility limit)からの比によって析出の駆動力(driving force)が働く．
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=5in]{./nishitani/Figure/Nucleation-1.jpg}
+\caption{核生成にともなう自由エネルギー変化のクラスター半径依存性．固体の析出現象の状態図による解説．}
+\label{Fig:Nucleation-1}
+\end{center}\end{figure}
+
+析出の核生成の始状態と終状態として図\ref{Fig:Nucleation-2}のようなモデルを考える．析出の初期では，高温の均質固溶体での原子の配置はランダムな状態であり，孤立・分散した溶質原子が溶媒原子中にばらばらに浮いている状態であり，正則溶体あるいはBragg-Williams近似が妥当である．一方，終状態はサイズ$n$のクラスターを1個作った状態である．すべての溶質原子はこのように反応し，それ以外に残る場合を考えなくてよい．このような系がいくつも存在する集団の平均を取ることが，カノニカルアンサンブルの自由エネルギーを考えることに相当する．この2つの状態のエンタルピー，エントロピー変化を別々に計算することによって，核生成に伴う系の平衡自由エネルギー変化を求めることが出来る．
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=5in]{./nishitani/Figure/Nucleation-2.jpg}
+\caption{析出核の自由エネルギー変化の始状態と終状態を示すモデル．}
+\label{Fig:Nucleation-2}
+\end{center}\end{figure}
+
+このようなモデルに基づく計算法は上条と福富によって導入された手法と同じである\cite{KamijoFukutomi}．彼らは，析出にともなうエントロピー変化が，初期組成を$x$とすると，近似的に
+\begin{equation}
+\Delta S = k_{\textrm{B}} (n-1) \ln x
+\label{Eq:Entropy}
+\end{equation}
+となることを理想溶体近似から導出している．
+
+\paragraph{計算モデル}
+計算は，析出物の整合性が高いbcc Fe中のbcc Cuの析出を対象とした．Fe-Cu系は，格納容器の実用鋼としても重要である．Cuはfcc構造が安定だが，bcc Fe中に析出する初期段階では歪みをなくすために整合析出する．第一原理計算で求めた基底状態の格子定数はbcc-Fe 2.867\AA およびbcc-Cu 2.900\AA である．歪みエネルギーは0.02eV/atom程度であるので，これを無視している．小さいモデルでは54原子，大きいクラスタサイズの時には128原子のunit cellを用い，Fe原子の一部をCuに置き換えて内部緩和させてエネルギーを求めた．ここには，Cu原子同士の結合生成にともなうエネルギー変化と界面のFe-Cu原子間の結合による界面エネルギーとが含まれている．
+\paragraph{結果}
+図\ref{Fig:Nucleation-3}には，それぞれのクラスターサイズを固定したときに最低エネルギーを示したCu原子の配置を示した． ここで示したCuクラスターはFe原子に取り囲まれている．例えば，$n=4$の場合には，線状あるいは面上の配置も考えられるが，CuはできるだけFeとの結合を避けるために球状に集まる．$n$が大きくなったときにもこの傾向は見られるが，必ずしも表面積を下げるだけではない．bcc Feとbcc Cuの界面エネルギーは，別におこなったVASPを使った計算から\{110\},\{111\},\{100\}面でそれぞれ0.24, 0.38および0.60 J/m$^2$であるため，\{110\}面で囲まれた構造を好む傾向がある．
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=5in]{./nishitani/Figure/Nucleation-3.jpg}
+\caption{クラスターサイズ$n$で最安定エネルギーを示した原子の配置．}
+\label{Fig:Nucleation-3}
+\end{center}\end{figure}
+
+図\ref{Fig:Nucleation-4}の左パネルは純組成のbcc Feとbcc Cuのエネルギーを結んだ線分である偏析極限(segregation limit)から測ったクラスターエネルギーである．析出の始状態から分かる通り，エンタルピー変化は孤立した溶質原子のエネルギーからのズレである．したがって図\ref{Fig:Nucleation-4}の左パネルで原点と$n=1$の点を結んだ直線，つまり希薄極限(dilution limit)からの差がこれに相当する．この希薄極限の延長線を新たな基準としてエネルギーを測ると，基準軸の傾きが変わり，図\ref{Fig:Nucleation-4}の右パネル中にクラスターエネルギーと記した曲線が得られる．これに(\ref{Eq:Entropy})式のエントロピー変化を加えるとクラスター生成自由エネルギー変化が得られる．曲線フィットによって求めた臨界半径と活性化エネルギーはそれぞれ10-25個，0.4-0.8eVであった．これらはGoodmanらが経験的に推測し，その後の実験の解釈に用いられている値と一致している\cite{Goodman}．
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=5in]{./nishitani/Figure/Nucleation-4.jpg}
+\caption{偏析極限からの差で示した最安定エネルギーのクラスターサイズ依存．Cuのクラスターサイズによる自由エネルギー変化．エントロピーは焼鈍温度773K，初期組成1.4\%Cuとして求め，曲線は計算値にフィットしてある．
+}
+\label{Fig:Nucleation-4}
+\end{center}\end{figure}
+
+さらに3元系へ拡張した場合にも，同様にしてエントロピー効果を見積もることができる\cite{Seko04}． 構成している原子の種類と数が等しいのでエントロピー効果は等しく，エンタルピーの差が自由エネルギーの差となる． 図\ref{Fig:Nucleation-2}は添加元素Niを，対称的な$n=15$のクラスターの(a)内部か(b)Feとの界面に配置した場合である．エンタルピー差は(a)2.73, (b)2.35eVとなり，Niは界面に偏析する傾向が強い．それぞれの原子間の相互作用パラメータを計算するとFe-Cu:59.0, Cu-Ni:-0.7, Fe-Ni:0.5meVであり，Fe-Cu間の強い正の反発的な相互作用を，相互作用のほとんどないNiを挟むことで緩和させていることが分かる．これらは実験結果と整合している．
+
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=5in]{./nishitani/Figure/Nucleation-5.jpg}
+\caption{第３元素としてNiを添加した場合の中心と表面のモデル．}
+\label{Fig:Nucleation-5}
+\end{center}\end{figure}
+
+\begin{thebibliography}{9}
+\bibitem{Nishitani07} 西谷滋人，まてりあ,46巻3号(2007), 創立70周年記念特集「材料科学の課題と展望~ナノマテリアル・環境材料を中心として~」pp.216-219.
+\bibitem{KamijoFukutomi} T. Kamijo and H. Fukutomi:  Phil. Mag. A, 48(1983), 685-693.
+\bibitem{Seko04} A.Seko, N.Odagaki, S.R.Nishitani, I. Tanaka and H. Adachi: Materials Trans., 45(2004), 1978-1981. 
+\bibitem{Goodman} S. R. Goodman, S. S. Brenner and J. R. Jow Jr.: Metal. Trans., 4(1973), 2371-2378. 
+\end{thebibliography}

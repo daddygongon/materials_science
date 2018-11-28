@@ -1,0 +1,40 @@
+\subsection{計算原理とその特徴}
+まず，「第一原理計算って何？」というと，
+\begin{quote}
+系の原子位置を入力として，電子構造をSchr\"odinger方程式に従って計算し，系のエネルギーポテンシャルを出力する．
+\end{quote}
+である．電子系の応答は，原子系の動きより圧倒的に早いため，分離して計算しても悪くない（断熱近似adiabatic approximation）．
+
+\paragraph{Schr\"odinger方程式}は
+\begin{eqnarray}
+H \psi &=& \epsilon \psi \nonumber \\
+\left(\frac{d}{dx}+V \right) \psi &=& \epsilon \psi
+\label{Eq:Hamiltonian}
+\end{eqnarray}
+と書かれる．それぞれハミルトニアン(Hamiltonian:$H$)と波動関数(wave function:$\phi$)，エネルギー固有値(energy Eigen value:$\epsilon$)を表わす．ハミルトニアンは運動エネルギー(Kinetic Energy)を表わす微分作用素項($d \psi/dx$)と，ポテンシャルエネルギーを表わす項($V \psi$)とからなる．ポテンシャル(potential:$V$)には，入力としていれた原子座標にある原子がもつ核ポテンシャル(nuclear potential)と，周りの電子の相互作用(交換相関相互作用，exchange-correlation interaction)が含まれている．したがってこのポテンシャルは繰り返し計算によって決定されなければならない．つまり，左辺に入力として入れるポテンシャルは周りの電子の構造に依存するため，(\ref{Eq:Hamiltonian})式の出力である電子波動関数$\psi$に依存する．通常は，この入力と出力のループを，エネルギーあるいは波動関数が収束するまで繰り返す必要がある．このループをself consistent loopと呼ぶ．
+
+\begin{figure}[h]
+\begin{center}
+\begin{picture}(450,200)
+\thicklines
+\put(0,0){\framebox(450,200)}
+\end{picture}
+\end{center}
+\caption{セルフコンシステントループ．}
+\end{figure}
+
+第一原理計算手法につけられた沢山の名前は，この核ポテンシャル，波動関数，電子の相互作用の近似の組み合わせにつけられている．
+\begin{description}
+\item[核ポテンシャル]
+原子核の静電的ポテンシャルは，全く近似を用いないFull Potentialと，内殻電子を有効的に取り込んだpseudo potentialに2分される．PseudoPにはその作り方によってultra soft, norm保存などがある(区別は覚えてない）． 
+\item[波動関数]
+電子の波動関数の二乗が電子の存在確率になる．現実の固体中の波動関数を記述するには原子サイトからの複雑なポテンシャルにしたがって，微調整する必要がある．その出発点としては，原子的な軌道(Atomic Orbital)と，平面波(Plane Wave)の2種類がある．AOの線形結合(Linear Combination)のLCAO, 計算を速めるための工夫が施されたPWには，改良(augument)したAPW，線形(Linearlized)などの名前がついている．また，AOとPWを合体したようなMuffin Tin Orbitalなんかも有名．原子ポテンシャルとしてFPを用いた場合はすべての電子を計算するという意味で，All Electronの計算と呼ばれる．AEの一種であるProjector Augmented Waveは，内殻の変化を取り入れたPseudo Pのような形式となっており，計算時間が早い．
+\item[電子の相互作用]
+電子の相互作用を近似する方法には局所密度近似(Local Density Approximation)と一般化勾配近似(Generalized Gradient Approximation)がある．あるいは開発者のversionによってPerdew-Wang 91などと呼ばれる．後述のバンドギャップとか，ファンデルワールス(Van der Waals)相互作用はこの近似では原理的に計算できない．このあたりは強相関電子系と共に，GGAを超えてGWとかいろいろ開発されているホットな領域．GWはちょっとネーミングが変なんで書いとくと，一電子グリーン関数$G$と遮蔽したクーロン相互作用$W$から自己エネルギー$\Sigma$を計算してバンド構造を求めることから．
+\end{description}
+
+\paragraph{周期的境界条件}
+PWを効率的に記述し，計算を高速化するため，計算は逆空間(k-space)で行われる．これは，高速フーリエ変換(Fast Fourier Transformation)の発展が大いに寄与している．実空間(real space)での計算もあるが，積分の精度が上がらずあまり普及していない．このPWのため周期的境界条件(periodic boundary condition)が第一原理計算では大きな制約条件となっている．
+
+\paragraph{学習のコツ}
+計算時間と計算精度，信頼性等はそれぞれの計算手法によって違い，計算対象によって一概にどれがいいとは言えない．ただ，お手軽計算には，PseudoP+PW，精密計算にはFP+LAPWが第一選択肢となる．それと，これらの細かいところの原理は必死で勉強しなくともやっているうちに馴染むので，どの程度の怪しさかさえ気をつけていればいい．それよりも系のもつエネルギーとは何かが分かってないと駄目．

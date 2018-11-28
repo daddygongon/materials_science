@@ -1,0 +1,10 @@
+\subsection{構造緩和}CUIから構造緩和を実行するには，INCARファイルのIBRION，NSW，ISIFという3つの要素を設定する．
+\paragraph{IBRION}原子の構造緩和を行う手法を指定するパラメータ．
+\begin{center}\begin{tabular}{cl}
+\hline	IBRION & 手法\\ \hline	-1 & 原子を緩和しない\\	0 & 分子動力学(molecular dynamics) \\	1 & 準ニュートン法(quasi-Newton)\\	2 & 共役勾配法(conjugate-gradient)\\
+	3 & 最急降下法(steepest descent) \\ \hline\end{tabular}
+\end{center}
+\paragraph{NSW}構造緩和において原子，または原子の集団を動かす回数を決めるパラメータである．少なすぎると収束せずに終わる場合がある．緩和を行わない場合は0とし，内部緩和と外部緩和の両方を考慮する場合は100とする．（これほんま？？）
+\paragraph{ISIF}応力テンソルをどのように計算させるかを決めるパラメータ．forceや応力テンソル，原子(ion)の移動，セルの形や体積を変化させるかを指定．
+\begin{center}\begin{tabular}{c|ccccc}	\hline	\hline	ISIF & \shortstack{calculate\\ force} & \shortstack{calculate\\ stress tensor} & \shortstack{relax\\ ion} & \shortstack{change\\ cell shape} & \shortstack{change\\ cell volume} \\ \hline	0 & yes & no & yes & no & no\\	1 & yes & total pressure & yes & no & no \\	2 & yes & yes & yes & no & no\\	3 & yes & yes & yes & yes & yes\\	4 & yes & yes & yes & yes & no\\	5 & yes & yes & no & yes & no\\ 	6 & yes & yes & no & yes & yes\\	7 & yes & yes & no & no & yes\\ \hline\end{tabular}
+\end{center}

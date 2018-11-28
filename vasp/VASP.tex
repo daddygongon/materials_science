@@ -1,0 +1,60 @@
+\documentclass[12pt,a4j]{jarticle}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[dvipdfmx]{pict2e}
+\def\pdfliteral#1{\special{pdf:content #1}}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{fancybox,ascmac}
+\topmargin -15mm\oddsidemargin -4mm\evensidemargin\oddsidemargin
+\textwidth 170mm\textheight 257mm\columnsep 7mm
+
+\begin{document}
+\title{『はじめてのVASP~原理から使用法，適用例まで~』}
+\author{関西学院大学・理工学部　西谷滋人}
+\maketitle
+
+第一原理計算は計算結果の信頼性と，ユーザインターフェースが
+近年格段に向上したことから，
+一般の研究者，技術者がちょっとしたアイデアを試すことができる
+手軽な計算ツールとなりつつある．
+どれだけお手軽で，どれだけ有用かをこの講演でお伝えすることを目的としている．
+また，実際の材料開発においてモデルをどのように作るか，
+起こりがちなトラブル・間違いへの対策をいくつかの具体的な事例で紹介する．
+
+\tableofcontents
+
+\section{第一原理計算法}
+\input{nishitani/CalcPrinciple} %計算原理とその特徴（西谷）
+\include{nishitani/CalcPrinciple2} %電子構造とエネルギーポテンシャル（西谷）
+\include{nishitani/CalcPrinciple4} %材料開発におけるエネルギーの重要性（西谷）
+\include{majima/relax} %%構造緩和（真嶋）
+
+\section{具体的な適用例}
+\input{./masaki/Semiconductor_Compounds/vasp_manual}
+%化合物半導体の安定性と積層欠陥エネルギー（西谷->正木）
+\include{./tsukahara/SiO2}%S高圧平衡
+\include{./tsukahara/SiO}%Si中の酸素の侵入位置（塚原，谷口）緩和．
+\include{./yamamoto/ZrCr_2Laves2}%ZrCr2Laves相のphonon計算による高温安定性（山本）
+\include{./yamamoto/SiC_Thermal_Expansion2}
+\include{./yamamoto/SiC_Surface_Diffusion}
+\include{./shigaki/manual2}%SiCの表面エネルギー（紫垣）原子数が違う場合の例．
+\include{./nishitani/Example-SF} %Si積層欠陥へのP,Bの侵入効果（西谷）
+\include{./nishitani/Example-Nucleation} %Fe中のCu析出物の活性化エネルギー（西谷）
+
+\section{VASPの使用法}
+\input{sakamoto/ev}
+%ネットワーク設営(坂本ほか)
+%計算の検証としてのE-V曲線（大坪）
+%linuxの基本（八幡）
+%設定ファイル（坂本）
+\include{./taniguchi/DOS}%電子状態密度の表示（谷口）
+
+\section{特殊な例,他}
+\input{./masaki/MedeA/MedeA}%GUIでVASPを実行，MedeAの利用（正木）
+\include{majima/use_relax} 
+\include{./Otsubo/Magnetic}%磁性材料でのspin計算（大坪）
+\include{./yamamoto/Phonon}%phonon計算（山本）
+%起こりがちなトラブル・間違いへの対策（大坪）
+
+
+
+\end{document}

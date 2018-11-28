@@ -1,0 +1,601 @@
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (sjis.euc) (TeX Live 2017) (preloaded format=platex 2018.3.27)  28 NOV 2018 21:52
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**VASP.tex
+(./VASP.tex
+pLaTeX2e <2017/10/28>+4 (based on LaTeX2e <2017-04-15>)
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2017/09/19 v1.7g Standard pLaTeX class
+\c@@paper=\count82
+(/usr/local/texlive/2017/texmf-dist/tex/platex/base/jsize12.clo
+File: jsize12.clo 2017/09/19 v1.7g Standard pLaTeX file (size option)
+)
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 613.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count91
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen121
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen122
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count92
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count93
+\leftroot@=\count94
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count95
+\DOTSCASE@=\count96
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box42
+\strutbox@=\box43
+\big@size=\dimen123
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
+\dotsspace@=\muskip10
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
+\tag@help=\toks16
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
+\andhelp@=\toks17
+\eqnshift@=\dimen124
+\alignsep@=\dimen125
+\tagshift@=\dimen126
+\tagwidth@=\dimen127
+\totwidth@=\dimen128
+\lineht@=\dimen129
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks20
+\thm@bodyfont=\toks21
+\thm@headfont=\toks22
+\thm@notefont=\toks23
+\thm@headpunct=\toks24
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks25
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pict2e/pict2e.sty
+Package: pict2e 2016/02/05 v0.3b Improved picture commands (HjG,RN,JT)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pict2e/pict2e.cfg
+File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: dvipdfmx.def on input line 119.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
+)
+Package pict2e Info: Driver file for pict2e: p2e-dvipdfmx.def on input line 121
+.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pict2e/p2e-dvipdfmx.def
+File: p2e-dvipdfmx.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+\pIIe@GRAPH=\toks26
+\@arclen=\dimen130
+\@arcrad=\dimen131
+\@tempdimd=\dimen132
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks27
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 99.
+)
+\Gin@req@height=\dimen133
+\Gin@req@width=\dimen134
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box44
+\shadowsize=\dimen135
+\@Sbox=\box45
+\do@VerbBox=\toks28
+\the@fancyput=\toks29
+\this@fancyput=\toks30
+\EndVerbatimTokens=\toks31
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (/usr/local/texlive/2017/texmf-dist/tex/platex/base/ascmac.sty
+Package: ascmac 2017/12/17 v2.0f ascmac wrapper (community edition) 
+
+(/usr/local/texlive/2017/texmf-dist/tex/platex/base/tascmac.sty
+Package: tascmac 2017/12/17 v2.0f ascmac package (community edition) 
+\@savetbaselineshift=\dimen136
+\@saveybaselineshift=\dimen137
+\scb@x=\box46
+\scscb@x=\box47
+\@bw=\dimen138
+\@nbox=\box48
+\@nbody=\box49
+\@scw=\dimen139
+\@itemh=\dimen140
+\@iboxpos=\toks32
+\@iboxstr=\box50
+\@bwsp=\box51
+\@@bwsp=\box52
+\@bcal=\count104
+\shaderule=\dimen141
+)) (./VASP.aux
+(./nishitani/CalcPrinciple2.aux) (./nishitani/CalcPrinciple4.aux)
+(./majima/relax.aux) (./tsukahara/SiO2.aux) (./tsukahara/SiO.aux)
+(./yamamoto/ZrCr_2Laves2.aux) (./yamamoto/SiC_Thermal_Expansion2.aux)
+(./yamamoto/SiC_Surface_Diffusion.aux) (./shigaki/manual2.aux)
+(./nishitani/Example-SF.aux) (./nishitani/Example-Nucleation.aux)
+(./taniguchi/DOS.aux) (./majima/use_relax.aux) (./Otsubo/Magnetic.aux
+
+LaTeX Warning: Label `dos' multiply defined.
+
+) (./yamamoto/Phonon.aux))
+\openout1 = `VASP.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 23.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 23.
+ (./VASP.toc
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+
+[1
+
+])
+\tf@toc=\write4
+\openout4 = `VASP.toc'.
+
+ (./nishitani/CalcPrinciple.tex
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+ [2]
+Overfull \hbox (450.0pt too wide) detected at line 20
+[]
+ []
+
+[3]) [4]
+\openout2 = `nishitani/CalcPrinciple2.aux'.
+
+ (./nishitani/CalcPrinciple2.tex
+Overfull \hbox (450.0pt too wide) detected at line 10
+[]
+ []
+
+[5
+
+]) [6]
+\openout2 = `nishitani/CalcPrinciple4.aux'.
+
+ (./nishitani/CalcPrinciple4.tex [7
+
+
+]) [8]
+\openout2 = `majima/relax.aux'.
+
+ (./majima/relax.tex
+File: ./majima/Figure/Si_EVcurve2.jpg Graphic file (type bmp)
+<./majima/Figure/Si_EVcurve2.jpg>
+File: ./majima/Figure/axis.jpg Graphic file (type bmp)
+<./majima/Figure/axis.jpg>
+ [9
+
+
+]
+File: ./majima/Figure/position.jpg Graphic file (type bmp)
+<./majima/Figure/position.jpg>
+File: ./majima/Figure/potential_flat.jpg Graphic file (type bmp)
+<./majima/Figure/potential_flat.jpg>
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 32--46
+[][]$[]$[] []$[]$[] 
+ []
+
+) [10] [11] (./masaki/Semiconductor_Compounds/vasp_manual.tex
+File: masaki/Figure/RSFE.jpg Graphic file (type bmp)
+<masaki/Figure/RSFE.jpg>
+File: ./masaki/Semiconductor_Compounds/Figure/SF_result.jpg Graphic file (type 
+bmp)
+<./masaki/Semiconductor_Compounds/Figure/SF_result.jpg>
+File: ./masaki/Semiconductor_Compounds/Figure/c_a_ratio.jpg Graphic file (type 
+bmp)
+<./masaki/Semiconductor_Compounds/Figure/c_a_ratio.jpg>
+ [12
+
+]) [13]
+\openout2 = `./tsukahara/SiO2.aux'.
+
+
+(./tsukahara/SiO2.tex
+File: ./tsukahara/Figure/takei.jpg Graphic file (type bmp)
+<./tsukahara/Figure/takei.jpg>
+File: ./tsukahara/Figure/SiO_E-Vcurve.jpg Graphic file (type bmp)
+<./tsukahara/Figure/SiO_E-Vcurve.jpg>
+
+Overfull \hbox (205.27979pt too wide) in paragraph at lines 17--18
+ [] 
+ []
+
+
+LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
+(Font)              using `JT1/mc/m/n' instead on input line 23.
+
+
+LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
+(Font)              using `JY1/mc/m/n' instead on input line 23.
+
+[14
+
+] [15]) [16]
+\openout2 = `./tsukahara/SiO.aux'.
+
+ (./tsukahara/SiO.tex
+File: ./tsukahara/Figure/SiO_model.jpg Graphic file (type bmp)
+<./tsukahara/Figure/SiO_model.jpg>
+
+Overfull \hbox (133.00949pt too wide) in paragraph at lines 9--10
+ [] 
+ []
+
+File: ./tsukahara/Figure/SiO_result.jpg Graphic file (type bmp)
+<./tsukahara/Figure/SiO_result.jpg>
+
+Overfull \hbox (188.41672pt too wide) in paragraph at lines 22--23
+ [] 
+ []
+
+) [17
+
+
+] [18]
+\openout2 = `./yamamoto/ZrCr_2Laves2.aux'.
+
+ (./yamamoto/ZrCr_2Laves2.tex
+
+LaTeX Warning: Citation `Pavlu1' on page 19 undefined on input line 5.
+
+File: ./yamamoto/Figure/Laves_Models.jpg Graphic file (type bmp)
+<./yamamoto/Figure/Laves_Models.jpg>
+File: ./yamamoto/Figure/Phase_diagram.jpg Graphic file (type bmp)
+<./yamamoto/Figure/Phase_diagram.jpg>
+
+LaTeX Warning: Reference `Phonon計算' on page 19 undefined on input line 19.
+
+[19
+
+
+]
+File: ./yamamoto/Figure/Laves_Phase_stability.jpg Graphic file (type bmp)
+<./yamamoto/Figure/Laves_Phase_stability.jpg>
+) [20]
+\openout2 = `./yamamoto/SiC_Thermal_Expansion2.aux'.
+
+ (./yamamoto/SiC_Thermal_Expansion2.tex
+File: ./yamamoto/Figure/3C_Thermal_Energy_Surface.jpg Graphic file (type bmp)
+<./yamamoto/Figure/3C_Thermal_Energy_Surface.jpg>
+File: ./yamamoto/Figure/4H_Thermal_Energy_Surface.jpg Graphic file (type bmp)
+<./yamamoto/Figure/4H_Thermal_Energy_Surface.jpg>
+
+Overfull \hbox (28.45276pt too wide) in paragraph at lines 29--30
+ [] 
+ []
+
+File: ./yamamoto/Figure/SiC_Thermal_Expansion.jpg Graphic file (type bmp)
+<./yamamoto/Figure/SiC_Thermal_Expansion.jpg>
+) [21
+
+
+] [22]
+\openout2 = `./yamamoto/SiC_Surface_Diffusion.aux'.
+
+ (./yamamoto/SiC_Surface_Diffusion.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
+File: ./yamamoto/Figure/SiC_Surface_Diffusion_0001surface.jpg Graphic file (typ
+e bmp)
+<./yamamoto/Figure/SiC_Surface_Diffusion_0001surface.jpg>
+File: ./yamamoto/Figure/SiC_Surface_Diffusion_C_Sites.jpg Graphic file (type bm
+p)
+<./yamamoto/Figure/SiC_Surface_Diffusion_C_Sites.jpg>
+File: ./yamamoto/Figure/SiC_Surface_Diffusion_Energy_Level.jpg Graphic file (ty
+pe bmp)
+<./yamamoto/Figure/SiC_Surface_Diffusion_Energy_Level.jpg>
+) [23
+
+
+] [24]
+\openout2 = `./shigaki/manual2.aux'.
+
+
+(./shigaki/manual2.tex
+File: ./shigaki/Figure/fig2.jpg Graphic file (type bmp)
+<./shigaki/Figure/fig2.jpg>
+File: ./shigaki/Figure/SiCChemicalPotential.jpg Graphic file (type bmp)
+<./shigaki/Figure/SiCChemicalPotential.jpg>
+ [25
+
+
+]
+File: ./shigaki/Figure/gh.jpg Graphic file (type bmp)
+<./shigaki/Figure/gh.jpg>
+) [26] [27]
+\openout2 = `./nishitani/Example-SF.aux'.
+
+ (./nishitani/Example-SF.tex
+File: ./nishitani/Figure/Si+P-1.eps Graphic file (type eps)
+<./nishitani/Figure/Si+P-1.eps>
+File: ./nishitani/Figure/Si+P-2.eps Graphic file (type eps)
+<./nishitani/Figure/Si+P-2.eps>
+ [28
+
+
+]
+File: ./nishitani/Figure/Si+P-3.eps Graphic file (type eps)
+<./nishitani/Figure/Si+P-3.eps>
+)
+[29]
+\openout2 = `./nishitani/Example-Nucleation.aux'.
+
+ (./nishitani/Example-Nucleation.tex
+File: ./nishitani/Figure/Nucleation-1.jpg Graphic file (type bmp)
+<./nishitani/Figure/Nucleation-1.jpg>
+File: ./nishitani/Figure/Nucleation-2.jpg Graphic file (type bmp)
+<./nishitani/Figure/Nucleation-2.jpg>
+ [30
+
+
+]
+File: ./nishitani/Figure/Nucleation-3.jpg Graphic file (type bmp)
+<./nishitani/Figure/Nucleation-3.jpg>
+File: ./nishitani/Figure/Nucleation-4.jpg Graphic file (type bmp)
+<./nishitani/Figure/Nucleation-4.jpg>
+ [31]
+File: ./nishitani/Figure/Nucleation-5.jpg Graphic file (type bmp)
+<./nishitani/Figure/Nucleation-5.jpg>
+ [32]) [33]
+(./sakamoto/ev.tex
+File: ./sakamoto/Figure/FLOW.jpg Graphic file (type bmp)
+<./sakamoto/Figure/FLOW.jpg>
+ [34
+
+] [35] [36]
+File: ./sakamoto/Figure/POSCAR1.jpg Graphic file (type bmp)
+<./sakamoto/Figure/POSCAR1.jpg>
+ [37]
+File: ./sakamoto/Figure/Si_EVcurve2.jpg Graphic file (type bmp)
+<./sakamoto/Figure/Si_EVcurve2.jpg>
+ [38] [39] [40] [41]
+File: ./sakamoto/Figure/INCAR.jpg Graphic file (type bmp)
+<./sakamoto/Figure/INCAR.jpg>
+ [42] [43] [44]
+[45]
+File: ./sakamoto/Figure/POSCAR1.jpg Graphic file (type bmp)
+<./sakamoto/Figure/POSCAR1.jpg>
+File: ./sakamoto/Figure/Sicrystal.jpg Graphic file (type bmp)
+<./sakamoto/Figure/Sicrystal.jpg>
+File: ./sakamoto/Figure/POSCAR2.jpg Graphic file (type bmp)
+<./sakamoto/Figure/POSCAR2.jpg>
+ [46] [47] [48]
+File: ./sakamoto/Figure/KPOINTS.jpg Graphic file (type bmp)
+<./sakamoto/Figure/KPOINTS.jpg>
+File: ./sakamoto/Figure/POTCAR.jpg Graphic file (type bmp)
+<./sakamoto/Figure/POTCAR.jpg>
+
+Overfull \hbox (28.45276pt too wide) in paragraph at lines 605--606
+ [] 
+ []
+
+) [49]
+\openout2 = `./taniguchi/DOS.aux'.
+
+ (./taniguchi/DOS.tex
+File: ./taniguchi/Figure/Si-POSCAR.jpg Graphic file (type bmp)
+<./taniguchi/Figure/Si-POSCAR.jpg>
+
+Overfull \hbox (6.13315pt too wide) in paragraph at lines 11--12
+ [] 
+ []
+
+[50
+
+]
+File: ./taniguchi/Figure/Si-DOSCAR_TetraBC.jpg Graphic file (type bmp)
+<./taniguchi/Figure/Si-DOSCAR_TetraBC.jpg>
+ [51]
+File: ./taniguchi/Figure/Si-DOS-TetraWithBC.jpg Graphic file (type bmp)
+<./taniguchi/Figure/Si-DOS-TetraWithBC.jpg>
+)
+Overfull \hbox (4.70726pt too wide) in paragraph at lines 88--49
+ \OT1/cmr/bx/n/12 DOS \JY1/gt/m/n/12 分布グラフ[] \JY1/mc/m/it/12 図 \OT1/cmr/m
+/n/12 45 \JY1/mc/m/it/12 の \OT1/cmr/m/n/12 DOS \JY1/mc/m/it/12 分布グラフは ，
+ 縦軸は \OT1/cmr/m/n/12 EMIN=-8.196[eV] \JY1/mc/m/it/12 から \OT1/cmr/m/n/12 EM
+AX=16.737[eV]
+ []
+
+[52] [53] (./masaki/MedeA/MedeA.tex
+File: ./masaki/MedeA/Figure/Si_structure01.jpg Graphic file (type bmp)
+<./masaki/MedeA/Figure/Si_structure01.jpg>
+ [54
+
+]
+File: ./masaki/MedeA/Figure/parameter_01.jpg Graphic file (type bmp)
+<./masaki/MedeA/Figure/parameter_01.jpg>
+File: ./masaki/MedeA/Figure/parameter_02.jpg Graphic file (type bmp)
+<./masaki/MedeA/Figure/parameter_02.jpg>
+File: ./masaki/MedeA/Figure/dos_01.jpg Graphic file (type bmp)
+<./masaki/MedeA/Figure/dos_01.jpg>
+File: ./masaki/MedeA/Figure/band_structure_01.jpg Graphic file (type bmp)
+<./masaki/MedeA/Figure/band_structure_01.jpg>
+ [55]) [56] [57]
+\openout2 = `majima/use_relax.aux'.
+
+
+(./majima/use_relax.tex) [58
+
+]
+\openout2 = `./Otsubo/Magnetic.aux'.
+
+ (./Otsubo/Magnetic.tex
+File: ./otsubo/Figure/dos.jpg Graphic file (type bmp)
+<./otsubo/Figure/dos.jpg>
+File: ./otsubo/Figure/magne.jpg Graphic file (type bmp)
+<./otsubo/Figure/magne.jpg>
+ [59
+
+
+]
+Overfull \hbox (9.70183pt too wide) in paragraph at lines 22--23
+ \JY1/gt/m/n/12 計算実例[] \JY1/mc/m/it/12 磁性を考慮した計算のためには ， \OT1
+/cmr/m/n/12 IN-CAR \JY1/mc/m/it/12 フ ァ イルにおいて ， \OT1/cmr/m/n/12 VOSKOW
+N=1\JY1/mc/m/it/12 ， \OT1/cmr/m/n/12 ISPIN=2\JY1/mc/m/it/12 ，
+ []
+
+
+Overfull \hbox (19.26099pt too wide) in paragraph at lines 24--26
+ \OT1/cmr/bx/n/12 VOSKOWN[] \OT1/cmr/m/n/12 VASP \JY1/mc/m/it/12 は普通 ， 交換
+相関汎関数の相関部分は ， 一般的な補間公式を使う\OT1/cmr/m/n/12 . VOSKOWN
+ []
+
+File: ./otsubo/Figure/Fe_INCAR.jpg Graphic file (type bmp)
+<./otsubo/Figure/Fe_INCAR.jpg>
+File: ./otsubo/Figure/Fe_poscar.jpg Graphic file (type bmp)
+<./otsubo/Figure/Fe_poscar.jpg>
+) [60] [61]
+\openout2 = `./yamamoto/Phonon.aux'.
+
+ (./yamamoto/Phonon.tex
+File: ./yamamoto/Figure/Phonon_Dispersion_DOS.jpg Graphic file (type bmp)
+<./yamamoto/Figure/Phonon_Dispersion_DOS.jpg>
+) [62
+
+
+] [63] (./VASP.aux
+(./nishitani/CalcPrinciple2.aux) (./nishitani/CalcPrinciple4.aux)
+(./majima/relax.aux) (./tsukahara/SiO2.aux) (./tsukahara/SiO.aux)
+(./yamamoto/ZrCr_2Laves2.aux) (./yamamoto/SiC_Thermal_Expansion2.aux)
+(./yamamoto/SiC_Surface_Diffusion.aux) (./shigaki/manual2.aux)
+(./nishitani/Example-SF.aux) (./nishitani/Example-Nucleation.aux)
+(./taniguchi/DOS.aux) (./majima/use_relax.aux) (./Otsubo/Magnetic.aux)
+(./yamamoto/Phonon.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2478 strings out of 493640
+ 34143 string characters out of 6148698
+ 99653 words of memory out of 5000000
+ 5862 multiletter control sequences out of 15000+600000
+ 20940 words of font info for 86 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 27i,11n,29p,1011b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on VASP.dvi (63 pages, 189380 bytes).

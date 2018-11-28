@@ -1,0 +1,40 @@
+\subsection{ZrCr$_2$Laves 相の phonon 計算による高温安定性}\label{ZrCr2Laves相のphonon計算による高温安定性}
+\paragraph{背景}
+本節では有限温度効果を加味した自由エネルギーの温度依存性を第一原理計算から求める手法を紹介する．
+対象は，典型的な AB$_2$ 型の構造を形成するZrCr$_2$ Laves 相である．
+図\ref{Laves_Models} に示した通り ZrCr$_2$ Laves 相は MgCu$_2$(C14)型，MgZn$_2$(C15)型, MgNi$_2$(C36)型という3つの構造をとり，図\ref{Phase_diagram} のように高温になるにつれC15 $\rightarrow$ C36 $\rightarrow$ C14 と最安定構造が遷移することが確認されている\cite{Pavlu1}．
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=10cm]{./yamamoto/Figure/Laves_Models.jpg} 
+\caption{ZrCr$_2$ Laves 相の各積層構造．} \label{Laves_Models}
+\end{center}
+\end{figure} 
+\begin{figure}[htbp]
+\begin{center}\includegraphics[width=8cm]{./yamamoto/Figure/Phase_diagram.jpg} 
+\caption{Zr-Cr二元系状態図．} \label{Phase_diagram}
+\end{center}
+\end{figure} 
+\paragraph{計算手法}
+まず計算モデルは実験的に報告されている各多形の格子定数を採用し，有限温度の熱振動効果を取り入れるため，Phonon-DOS法を用いて各多形の自由エネルギーを求めた．
+\ref{Phonon計算}節で詳述するが，Phonon-DOS法とはまず原子を調和振動子とみなし，力定数を求める．
+そしてその力定数からフォノン分散曲線を求め，それを積分することでフォノン状態密度を算出し，熱振動効果を加味した有限温度の自由エネルギーを求めるという流れである．
+
+本計算でPhonon-DOS法を採用するにあたり，特にC36に含まれる単位胞あたりの原子数が多く，計算時間も長時間に及ぶため，計算精度をやや低く設定しており，さらに熱膨張も取り入れていない．
+
+
+\paragraph{結果}
+図\ref{Phase_stability}は C15 を基準とした各相の自由エネルギー差を示している．
+高温になるにつれ C15 から C14 へ安定相が変化するという点で，図\ref{Phase_diagram} に示した実験結果と整合している．
+しかし1800～1900 K において，C36 が最安定構造であるという実験結果を再現するには至らなかった．
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=8cm]{./yamamoto/Figure/Laves_Phase_stability.jpg} 
+\caption{ZrCr$_2$ Laves相における結晶多形の自由エネルギーの温度依存性．} \label{Phase_stability}
+\end{center}
+\end{figure} 
+
+\begin{thebibliography}{9}
+\bibitem{Pavlu}
+J. Pavlu, J. Vrestal, M.Sob, "Stability of Laves Phases in the CrZr System", CALPHAD-COMPUTER COUPLING OF PHASEDIAGRAMS AND THERMOCHEMISTRY, 2009.
+\end{thebibliography}

@@ -1,0 +1,30 @@
+\subsection{材料開発で必要となるエネルギー値}
+先に示した通り，第一原理計算では容易に完全結晶(perfect lattice)の安定性(stability)や，原子位置の緩和(relaxation)ができる．これらを使って求めたエネルギーから，新素材の物性予測や，組織生成のシミュレーションが可能となる．本節ではその基本となる部分を抽出して一般論をしめす．具体的な計算事例は次章で紹介する．材料開発で使う時のこつは，律速する素過程・構造を抽出し，周期的境界条件の影響を考慮しつつ，できるだけユニットセル(unit cell)サイズの小さなモデルを作成すること．また，エネルギー差を求めるときには，始状態と終状態の原子数を合わせることである．
+
+\subsubsection{欠陥エネルギー}
+欠陥(defect)は組織(microstructure)の基礎的な構成要素である．また，物性に与える影響は甚大であり，その原子構造，エネルギー，電子構造すべてが非常に重要な計算対象となる．
+\begin{description}
+\item[0次元]対象は点(point)欠陥で計算は容易．空孔(vacancy)や置換(substitutional)，侵入(interstitial)原子を扱う．周期的境界条件により隣の欠陥との相互作用が懸念されるので，ユニットセルのサイズを大きしながら収束を見る．金属系では比較的早く収束するが，ギャップのある系では注意．また，侵入原子では格子(lattice)の，四面体位置(tetragonal site)，八面体位置(octahedral site)，ボンドセンター(bond center)などのサイトエネルギーを比較する．
+\item[1次元]対象は転位(dislocation)で計算は困難．周期的境界条件を満足するように転位を入れるのが難しい．刃状(edge)転位はプラスとマイナスの転位をおくが，full relaxがうまくいくとextra half planeが消える．また，現実の材料では，拡張転位を扱うことが多いので，この拡張幅まで再現しようとすると．．．「お京はん」に頼りましょ．らせん(screw)転位は，薄いユニットセルに四重極子のように転位を配置して計算する．これは原子の連続性だけでなく，力もキャンセルさせるため．ただし，拡張幅の目安となる積層欠陥は事項で計算できる．また，グリーン関数法によってflexible boundary conditionを使って力のキャンセルをうまくする方法が開発されている．
+\item[2次元]対象は積層欠陥(stacking fault)，表面(surface)，界面(interface)．計算の難易度は問題による．積層欠陥はとても楽．表面は１次元の外側に真空層をとり，それを他の2次元方向に拡張した厚板(slab)モデルを使う．化合物では表面に同じ原子だけが出てくる極性面(polarized plane)と非極性面(non-polarized plane)があり計算が信頼できるかは確認する必要がある．また，表面再構成(surface reconstruction)があり，どこまで再現するかによって計算は難しくなるが，地道に続ければだいじょうぶ．界面のモデルは整合界面(coherent interface)を対象とするが，大きなサイズを取れないため周期が短い小さなシグマ値($\Sigma 3, \Sigma 5$など)の界面構造を計算対象としており，積層欠陥と同じような計算になる．傾角(tilt)とねじり(twist)界面とも2枚の界面を入れて周期性を保証する必要がある．
+\end{description}
+\subsubsection{状態図}
+状態図は相の安定性や組織生成過程，駆動力の推測の基本となる．絶対０度の基底状態(ground states)を対象とするだけでなく，いくつかの有限温度(finite temperature)での計算がある．
+\begin{description}
+\item[生成熱]
+生成熱(formation enthalpy:$\Delta H$)の正負が
+\begin{equation}
+A+B\rightarrow AB
+\end{equation}
+の反応が進むかどうかを決める．2原子分子で説明したのと同じ議論を固体に適用する．生成する可能性のある構造がいくつもある場合はそれらを比較する．状態図上では純物質$A$と$B$の平均を意味する偏析極限(segregation limit)を基準にして生成熱をとる．
+\item[phonon計算]有限温度の効果である振動効果(vibrational effect)と配置効果は時定数(time constant)がまったく違うため相互作用を無視して別々に扱うことができる．振動効果は力定数(force constant)を求め，そこからphonon状態密度をだし，その積分によって求める．擬調和振動子近似(pseudo harmonic oscillator approximation)では熱膨張(thermal expansion)の効果を取り入れて各温度での振動自由エネルギーを計算する．
+\item[配置エントロピー]
+原子の配置(configuration)の違いによるエントロピーは2体の相互作用のみを考えるBragg-Williams近似がもっとも単純．さらに3体，4体のクラスターの相互作用を取り入れたクラスター変分法(cluster variation method)が開発されている．実用上は，状態図を経験パラメータから求めるCALPHAD法で必要となる生成エンタルピーを第一原理計算から求める手法が確立し，多くの適用例がある．
+\end{description}
+\subsubsection{活性化エネルギー}
+\begin{description}
+\item[拡散]拡散(diffusion)の活性化エネルギー(activation energy, barrier)は拡散経路(path)の鞍点(saddle point)のエネルギーが目安となる．鞍点での原子緩和が複雑な拡散パスの場合には，nudged elastic band法が取られる．
+\item[核生成]組織発展の起点となる核生成(nucleation)の活性化エネルギーを求める手法は確立していないが，我々の扱いを後で紹介する．
+\end{description}
+\subsubsection{組織発展}
+このようにして求まったエネルギー値や実験値を使って組織生成，発展過程を丸ごと扱うphase field法がある．しかし，通常の材料開発においては，界面エネルギーの異方性や拡散速度のそれぞれの値を見積もり，律速段階(直訳はrate-determining stepですが，control mechanismのつもり)を見極め，添加元素(additives)や温度を調整する戦略が取られる．

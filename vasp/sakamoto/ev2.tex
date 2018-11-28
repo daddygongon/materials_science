@@ -1,0 +1,612 @@
+%＼begin{document}
+%＼section{VASPの使用法}
+＼subsection{計算ホストへのログイン}
+研究室の計算ソフトのインストールされているサーバ（以下計算ホスト）へは，外部から直接ログインできない構成になっている．
+%研究室で展開しているローカルエリアネットワーク内のPCからリモートログインし計算の発行が可能となる．
+本節では，研究室内のPCへリモートログインし，そのPCから，計算ホストへリモートログインするまでの操作を説明する．
+＼begin{description}
+＼item[1.] 
+　研究室のサーバには，グローバルアドレスを割り振っておらず，研究室で展開しているローカルエリアネットワーク内のPCからリモートログインし計算の発行が可能となる．
+本稿では，研究室内のPCへリモートログインし，そのPCから再度，計算ホストへリモートログインし，計算の実行，検証までを説明する．＼＼
+研究室のPCへログインする．下記のアカウント名とPasswordの欄には，配布したプリントに記載されているアカウント名とパスワードを入力する．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+/Users/sakamotoyuichi% ssh {アカウント名}@192.218.172.38
+Password:
+Last login: Wed Oct 19 17:26:37 2011 from 192.168.1.59
+nishitani-shigeruhito-no-mac-mini:? vaspguest$ pwd
+/Users/vaspguest
+＼end{verbatim}
+＼end{itembox}}
+＼item[2.]
+計算ホストにログインする．
+＼＼※こちらは先ほどのアカウント名とパスワードとは異なる．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+nishitani-shigeruhito-no-mac-mini:? vaspguest$ ssh {アカウント名}@192.168.5.12
+Password: 
+Last login: Fri Oct 14 20:17:27 2011 from 192.168.1.61
+Have a lot of fun...
+test2@asura0:?> 
+＼end{verbatim}
+＼end{itembox}}
+＼end{description}
+＼newpage
+＼subsection{VASPの実行}
+VASPでは図＼ref{FLOW}のようなプロセスで計算が実行される．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=9cm]{./Figure/FLOW.jpg}
+＼caption{VASPの計算のプロセス．ディレクトリの中に4つの入力ファイルを用意してVASPを実行．計算終了後，結果をディレクトリに出力する．}
+＼label{FLOW}
+＼end{center}
+＼end{figure}＼＼
+VASPを実行するためにはINCARファイル，POSCARファイル, KPOINTSファイル，POTCARファイルの4つのInputファイルを用意する．なお，操作性を向上させるため，一つの計算ごとにディレクトリを作ることを推奨する．
+これらのファイルの詳細は付録＼ref{inputfile}節に記載する．＼＼
+
+まず，計算に使用するディレクトリの作成，ファイルのコピーの操作を行う．
+{＼scriptsize＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+#絶対パスを表示
+default@asura0:?> pwd
+/home/default
+default@asura0:?> ls
+Documents/  bin/  data/ public_html/
+#ディレクトリの作成
+default@asura0:?> mkdir guest
+default@asura0:?> ls
+Documents/  bin/  data/ guest/ public_html/
+default@asura0:?> cd guest
+default@asura0:?/guest> mkdir Si
+#dataのディレクトリにあるファイルをコピーする
+default@asura0:?/guest> cp /home/default/data/Si/* Si/
+#ファイル，ディレクリを表示
+default@asura0:?/guest> ls Si/
+INCAR  KPOINTS  POSCAR  POTCAR
+default@asura0:?/guest> 
+＼end{verbatim}
+＼end{itembox}}
+＼newpage
+次に，用意した4つのファイルを使いVASPを実行する．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+#コマンドのパスを表示
+test@asura0:?/Si> which vasp
+/usr/local/vasp/vasp.4.6.28/vasp
+#計算実行のコマンド
+test@asura0:?/Si> vasp
+ running on    1 nodes
+ distr:  one band on    1 nodes,    1 groups
+ vasp.4.6.28 25Jul05 complex 
+ POSCAR found :  1 types and    2 ions
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ...           1
+ reading WAVECAR
+ entering main loop
+       N       E                     dE             d eps       ncg     rms  ...
+DAV:   1     0.912638858489E+01    0.91264E+01   -0.30406E+03   560   0.809E+02．
+DAV:   2    -0.873197391498E+01   -0.44878E+00   -0.44879E+00   720   0.138E+01
+DAV:   3    -0.873458183285E+01   -0.26079E-02   -0.26075E-02   832   0.130E+00
+DAV:   4    -0.873458882206E+01   -0.69892E-05   -0.69892E-05   768   0.611E-02 ... 
+DAV:   5    -0.872574201848E+01   -0.11826E-02   -0.17346E-03   640   0.263E-01 ...
+DAV:   6    -0.872581715611E+01   -0.13583E-04   -0.25872E-05   568   0.323E-02 ...
+DAV:   7    -0.872581713107E+01    0.25041E-07   -0.70291E-07   288   0.681E-03
+   1 F= -.87258171E+01 E0= -.87256900E+01  d E =-.872582E+01
+ curvature:   0.00 expect dE= 0.000E+00 dE for cont linesearch  0.000E+00
+ trial: gam= 0.00000 g(F)=  0.144E-44 g(S)=  0.000E+00 ort = 0.000E+00 ...
+ search vector abs. value=  0.100E-09
+ reached required accuracy - stopping structural energy minimisation
+＼end{verbatim}
+＼end{itembox}}
+＼＼
+
+計算終了後，ディレクトリ内にOUTCARファイル等が生成される．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test@asura0:?/Si> ls
+CHG     CONTCAR  EIGENVAL  INCAR*   KPOINTS*  OUTCAR  POSCAR*   POTCAR*  WAVECAR  vasprun.xml
+CHGCAR  DOSCAR   IBZKPT    INCAR?*  OSZICAR   PCDAT   POSCAR?*  PROCAR   XDATCAR
+＼end{verbatim}
+＼end{itembox}}
+＼＼
+＼＼
+OUTCARファイルは計算終了後に作成されるファイルである．
+このOUTCARファイルには計算終了後の自由エネルギー，基本並進ベクトル，各座標座標データなどのデータが出力される．
+また，他にもバンドの数，原子にかかるフォースの大きさや計算時間も出力される．
+{＼scriptsize＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test2@asura0:?/Si> cat OUTCAR 
+ vasp.4.6.28 25Jul05 complex 
+ executed on             LinuxIFC date 2011.10.14  21:58:52
+ running on    1 nodes
+ distr:  one band on    1 nodes,    1 groups
+　　　　　　　　　　　　　　　　  :
+　　　　　　　　　　　　　　　　  :
+　　　　　　　　　　　　　　　　  :
+ VOLUME and BASIS-vectors are now :
+ -----------------------------------------------------------------------------
+  energy-cutoff  :      600.00
+  volume of cell :       70.65
+      direct lattice vectors                 reciprocal lattice vectors
+     0.000000122  3.281162598  3.281162538    -0.152385014  0.152385017  0.152385014
+     3.281162598  0.000000061  3.281162538     0.152385014 -0.152385017  0.152385014
+     3.281162598  3.281162538  0.000000001     0.152385014  0.152385011 -0.152385020
+＼end{verbatim}
+＼end{itembox}}＼＼
+＼subsection{E-V曲線の作成}
+E-V 曲線は系のエネルギーの体積依存性を示す．
+このE-V曲線を利用して，最安定の体積を求めることや正しく緩和できているかの確認などができる．
+さらに，エネルギーを体積で一次微分して圧力を得ることができ，二次微分では，固体の硬さを求めることもできる．
+以下では，ダイヤモンド構造をもつSiをモデルとしてE-V曲線を描く操作を示した．＼＼
+＼begin{description}
+＼item[1.]?
+VASPの計算を実行する．
+%もし，外部緩和させないのであれば，構造最適化の体積を再現しないため，SiのE-V曲線はきれいな弧を描かない可能性がある．
+%緩和などの設定はINCARファイル内のISIFを変更する．外部緩和と内部緩和をともに考えるならならISIF=3と設定する．
+%外部緩和では体積を変え，total forceが0になる状態をさがして，最安定構造をみつける．
+%外部緩和を加味して計算すると，普通ならitrationがたくさん行われる．
+%しかし，このモデルの計算では，計算時間の短縮のため，最安定構造の格子定数に設定しているため，itrationが1度しかおこなわれていない．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test@asura0:?/Si> ls
+INCAR  KPOINTS  POSCAR  POTCAR
+test@asura0:?/Si> vasp
+＼end{verbatim}
+＼end{itembox}}
+＼item[2.]
+計算実行後，まずはエラーが起こっていないかを確認するため，catでOUTCARファイルを確認する．
+エラーがなければ，OUTCARファイルから体積とエネルギーを抽出する．
+OUTCARファイルは行数が多いため，grepすることを勧める．
+TOTENは一番最後に出力された値がエネルギーの収束値を表す．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test@asura0:?/Si> grep "TOTEN" OUTCAR
+  free energy    TOTEN  =         6.85808160 eV
+  free energy    TOTEN  =       -10.78884267 eV
+   free energy    TOTEN  =       -11.01663957 eV
+  free energy    TOTEN  =       -10.90056580 eV
+test@asura0:?/Si> grep "volume of cell" OUTCAR
+  volume of cell :       40.89
+  volume of cell :       40.89
+＼end{verbatim}
+＼end{itembox}}
+＼item[3.]
+次の計算を実行すると，OUTCARファイル等の出力ファイルが上書きされてしまうため，バックアップをとっておく．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test@asura0:?/Si> mkdir default
+test@asura0:?/Si> cp ./* default/
+cp: omitting directory `./default'
+test@asura0:?/Si> ls
+CHG  CONTCAR  EIGENVAL  INCAR    OSZICAR  PCDAT   POSCAR?  PROCAR   XDATCAR 
+vasprun.xml  CHGCAR  DOSCAR   IBZKPT KPOINTS  OUTCAR   POSCAR  POTCAR   WAVECAR  default/
+test@asura0:?/Si> ls default/
+CHG  CONTCAR  EIGENVAL  INCAR    OSZICAR  PCDAT   POSCAR? PROCAR   XDATCAR 
+ CHGCAR  DOSCAR   IBZKPT    KPOINTS  OUTCAR   POSCAR  POTCAR   WAVECAR  vasprun.xml
+＼end{verbatim}
+＼end{itembox}}
+＼item[4.]?
+POSCARファイルの格子定数の倍率を1.0から0.8や1.2などに書き換える．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test2@asura0:?/Si> emacs POSCAR
+＼end{verbatim}
+＼end{itembox}}
+倍率の変え方は1を基準に0.1（0.8,0.9,1.0,1.1,1.2）や0.05(0.9,0.95,1.00,1.05,1.10)刻みでとることをお勧めする．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=14.0cm]{./Figure/POSCAR1.jpg}
+＼caption{POSCARファイル}
+＼end{center}
+＼end{figure}
+＼newpage
+＼item[5.]?
+計算を実行する．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test2@asura0:?/Si> vasp
+＼end{verbatim}
+＼end{itembox}}
+＼item[6.]?
+2と同様に6で計算したOUTCARファイルをcatし，エラーがないかを確認する．
+その後，体積とエネルギーを抽出する．
+＼item[7.]
+新しいディレクトリを作り，入力ファイルと出力ファイルのコピーを取る．
+{＼scriptsize
+＼begin{itembox}{ターミナル}
+＼begin{verbatim}
+test@asura0:?/Si> mkdir scale08
+test@asura0:?/Si> cp ./* scale08/
+cp: omitting directory `./default'
+cp: omitting directory `./scale08'
+test@asura0:?/Si> ls
+CHG     CONTCAR  EIGENVAL  INCAR    OSZICAR  PCDAT   POSCAR?
+PROCAR   XDATCAR   scale08/  CHGCAR  DOSCAR   IBZKPT    
+KPOINTS  OUTCAR   POSCAR  POTCAR   WAVECAR  default/ 
+test@asura0:?/Si> ls scale08/
+CHG     CONTCAR  EIGENVAL  INCAR    OSZICAR  PCDAT   POSCAR?
+PROCAR   XDATCAR  CHGCAR  DOSCAR   IBZKPT    KPOINTS  OUTCAR
+POSCAR  POTCAR   WAVECAR  vasprun.xml
+＼end{verbatim}
+＼end{itembox}}
+＼item[8.]?
+格子定数の倍率を変化させる分だけ，5から8の作業を繰り返す.
+＼item[9.]?
+OUTCARファイルから抽出した体積を横軸に，エネルギーを縦軸にしてプロットし，E-V曲線を作成する.
+＼end{description}
+以上のプロセスから図＼ref{E-V}のようなダイヤモンド構造のSiのE-V曲線を作成した．この図を作成するにあたり数値計算ソフトであるMapleを使用した．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[scale=0.5,bb=0 0 500 500]{./Figure/Si_EVcurve2.jpg}
+＼caption{SiのE-V曲線}
+＼label{E-V}
+＼end{center}
+＼end{figure}
+＼newpage
+＼appendix　%付録
+＼section{Linuxコマンド}
+＼begin{itemize}
+＼item ＼textbf{cd}
+＼begin{itemize}
+＼item cdコマンドは，作業ディレクトリを指定したディレクトリに移動するためのコマンド．cd [ディレクトリ名]で指定したディレクトリに移動できる．コマンド名cdはChange Directoryに由来する．
+＼end{itemize}
+＼item ＼textbf{pwd}
+＼begin{itemize}
+＼item pwdコマンドは，現在作業中のディレクトリ，カレントディレクトリを表示させるためのコマンド．現在ログインしているディレクトリのことをカレントディレクトリと呼ぶ．コマンド名pwdはPrint Working Directoryに由来する．
+＼end{itemize}
+＼item ＼textbf{ls}
+＼begin{itemize}
+＼item lsコマンドは，ls [オプション]でカレントディレクトリにあるファイルやディレクトリを表示するためのコマンド．コマンド名lsはList directoryに由来する．
+＼begin{itemize}
+＼item オプション＼＼-a  隠しファイルを含む全てのファイルを表示する．＼＼-l  ファイルの詳細を表示する．＼＼-G  ファイルタイプに応じて色分けする．＼＼-t  タイムスタンプ順にソートする．＼＼-F  ディレクトリには/，実行ファイルには*をつけて出力する．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{mkdir}
+＼begin{itemize}
+＼item mkdirコマンドは，mkdir [作成ディレクトリ名]で指定したディレクトリを作成する．コマンド名mkdirはMake Directoryに由来する．
+＼end{itemize}
+＼item ＼textbf{touch}
+＼begin{itemize}
+＼item touchコマンドはtouch [オプション] [変更ファイル名]で更新日時を変更する．また指定した名前のファイルやディレクトリが存在しない場合，空ファイルを作成する．
+＼begin{itemize}
+＼item オプション＼＼-c  指定したファイルが存在しない場合でもファイルを作成しない．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{cat}
+＼begin{itemize}
+＼item catコマンドはファイルの内容の閲覧をしたり，ファイルを連結するためのコマンドであり，cat [ファイル名]で指定したファイルの内容を標準出力に出力する．コマンド名catはconcatenate stdoutに由来する．
+＼end{itemize}
+＼item ＼textbf{more}
+＼begin{itemize}
+＼item moreコマンドは，more [オプション] [閲覧したいファイル名]でファイルの内容を閲覧するためのコマンド．
+＼begin{itemize}
+＼item オプション＼＼＼verb|+/[パターン]|  パターン検索をし，そこから表示を開始する．＼＼＼verb|+[行数]|  表示開始行を指定する．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{less}
+＼begin{itemize}
+＼item lessコマンドは，less [オプション] [閲覧したいファイル名]でファイルの内容を閲覧するためのコマンド．
+＼begin{itemize}
+＼item オプション＼＼-e  ファイルの終端に二度到達すると終了する．＼＼-f  テキストファイル以外でも警告を表示せずにファイルを開く．＼＼-E  ファイルの終端に一度到達すると終了する．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{grep}
+＼begin{itemize}
+＼item grepコマンドは，grep [オプション] [文字列パターン] [ファイル名]で文字列を検索するためのコマンド．
+＼begin{itemize}
+＼item オプション＼＼-n  入力ファイルにおける行番号を表示する．＼＼-v  指定した文字列パターンを含まない行を表示する．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{diff}
+＼begin{itemize}
+＼item diffコマンドは，diff [オプション] [ファイル名1] [ファイル名2]で指定したファイルの内容の違いを調べられるコマンド．
+＼begin{itemize}
+＼item オプション＼＼-a  全てのファイルをテキストとみなして比較を行う．＼＼-b  空白の数だけが違う場合には違いを無視する．＼＼-i  英大文字と小文字の違いを無視する．＼＼-q  ファイルが違うかどうかだけを報告する．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{cp}
+＼begin{itemize}
+＼item cpコマンドは，cp [オプション] [コピー元ファイル名] [コピー先ファイル名]で指定したファイルをコピーするためのコマンド．コマンド名はCopy fileに由来する．
+＼begin{itemize}
+＼item オプション＼＼-i  ファイルの上書きを確認する．＼＼-R  ディレクトリを再帰的にコピーする．＼＼-p  コピー元ファイルのオーナー，グループ，パーミッション，最終更新日時，最終サクセス日時を可能な限り保持してコピーする．＼＼-a  コピー元ファイルの構成と属性を可能な限り保持してコピーする.
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{mv}
+＼begin{itemize}
+＼item mvコマンドは，mv [変更前ファイル名] [変更後ファイル名]でファイルの名前を変更するコマンド．
+また，mv [ファイル名] [移動先ディレクトリ名]でファイルを移動させることができる．コマンド名はMove fileに由来する．
+＼end{itemize}
+＼item ＼textbf{rm}
+＼begin{itemize}
+＼item rmコマンドはrm [オプション] [削除ファイル名,ディレクトリ名]で指定したファイルやディレクトリを削除する．コマンド名rmはRemove fileに由来する．
+＼begin{itemize}
+＼item オプション＼＼-f  ファイルを削除するとき，削除の確認をしない．＼＼-i  ファイルを削除するとき，削除の確認をする．＼＼-r  ディレクトリを再帰的に削除する．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{emacs} 
+＼begin{itemize}
+＼item emacsコマンドは，emacs [ファイル名]で指定したファイルをemacsというエディタで開き，編集するコマンド．
+＼end{itemize}
+＼item ＼textbf{top}
+＼begin{itemize}
+＼item topコマンドは，現在の実行プロセスを表示させるコマンド．終了するにはqを入力する．
+＼end{itemize}
+＼item ＼textbf{ps}
+＼begin{itemize}
+＼item psコマンドは，ps [オプション]で現在起動しているプロセスを表示するためのコマンド．
+＼begin{itemize}
+＼item オプション＼＼a  他のユーザーのものも含め，このターミナルの全てのプロセスを選択する．＼＼u  プロセスを実行しているユーザの名前を表示する．＼＼x  制御端末の無いプロセスの情報も含める．
+＼end{itemize}
+＼end{itemize}
+＼item ＼textbf{which}
+＼begin{itemize}
+＼item whichコマンドは，which [コマンド名]で指定したコマンドのパスを表示するコマンド．
+＼end{itemize}
+＼item ＼textbf{ssh}
+＼begin{itemize}
+＼item sshコマンドは，ssh [ユーザー名]@[ホスト名 or IPアドレス]で指定したホストにsshで接続するコマンド．sshは通信が暗号化されるため，セキュリティ上，比較的安全な接続が実現される．
+＼end{itemize}
+＼item ＼textbf{man}
+＼begin{itemize}
+＼item manコマンドは，man [コマンド名]で指定したコマンドのマニュアルを表示するコマンド．終了するにはqを入力する．
+＼end{itemize}
+＼end{itemize}
+
+＼section{設定ファイル}＼label{inputfile}
+＼subsection{INCAR}
+INCARファイルはVASPにおける入力ファイルである．
+INCARファイルにはどのような条件下で第一原理計算を行うかを決定するパラメータが明記されている．
+
+例として，Siの計算を行う際のINCARファイルを図＼ref{INCAR}に示した．
+以下に示されているパラメータを説明する．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=7cm]{./Figure/INCAR.jpg}
+＼caption{INCAR ファイル．}
+＼label{INCAR}
+＼end{center}
+＼end{figure}
+＼begin{description}
+＼item[PREC(Precision)]
+計算の精度をつかさどるパラメータである．
+Low，Medium，High，Normal，Accurateなどがあり，NormalとAccurateはVASP4.5以降のver.のみで使用できる．
+なお，構造最適化を目的とした計算の場合，より正確なエネルギーを求める必要があるので，もっとも精度の高いAccurateと設定するのが望ましい．
+＼＼default PREC=Mediam
+＼item[ENCUT(Energy Cut-off)]
+Cut-off energyと呼ばれる値を入力するパラメータである．
+これは，どれだけ短波長の平面波を使い，波動関数をより精密に表現することに関連するパラメータである．
+また，入力した値が大きいほど，短波長の平面波も計算に考慮し，より精密な計算を行うことができる．
+%波動関数を複数の平面波の足し合わせで考えるとき，より複雑な形の波動関数を表現するためにはより短い波長（つまり大きいCut-off energy）の平面波を使うのが望ましい．
+なお，計算系によって最適なCut-off energyの値は異なるため，まず系毎に適切な精度の検証を行い，十分にエネルギーが収束する値を用いることが理想的である．
+＼＼default ENCUT=267
+%＼begin{description}
+%＼item[Cut-off energy]
+%Cut-off energyは，平面波でどこまで厳密に波動関数を表現するかを制御するパラメータである．
+%波動関数を複数の平面波の足し合わせで考えるとき，より複雑な形の波動関数を表現するためにはより短い波長（つまり大きいCut-off energy）の平面波を使うのが望ましい．
+%なお，計算系によって最適なCut-off energyの値は異なるため，まず系毎に適切な精度の検証を行い，十分にエネルギーが収束する値を用いることが理想的である．
+%＼end{description}
+＼item[NBANDS(Number of Bands)]
+バンドの数を決定するパラメータである．
+一般的には，記述しなくても適当な値をとる．
+＼item[ISIF(Ion Stress Ion Freedom)]
+応力テンソルをどのように計算するかを決めるパラメータである．
+forceや応力テンソル，イオンのリラックス，セルの形や体積の変化などを考慮するか否かを決定できる．
+詳細は表＼ref{table:ISIF}に示す．
+応力テンソルの計算は比較的時間がかかる．
+＼＼default
+＼＼if IBRION=0 ISIF=0
+＼＼else ISIF=2
+＼begin{table}[htbp]
+＼begin{center}
+＼caption{ISIF（0～7）による相違点}
+＼begin{tabular}{l|lllll}
+＼hline
+＼hline
+ISIF & calculate & calculate & relax & change & change ＼＼
+& force & stress tensor & ions & cell shape & cell volume ＼＼＼hline
+0 & yes & no & yes & no & no ＼＼
+1 & yes & trace only  & yes & no & no ＼＼
+2 & yes & yes & yes & no & no ＼＼
+3 & yes & yes & yes & yes & yes ＼＼
+4 & yes & yes & yes & yes & no ＼＼
+5 & yes & yes & no & yes & no ＼＼
+6 & yes & yes & no & yes & yes ＼＼
+7 & yes & yes & no & no & yes ＼＼ ＼hline
+＼hline
+＼end{tabular}
+＼label{table:ISIF}
+＼end{center}
+＼end{table}
+＼newpage
+＼item[IBRION(Ionic Relaxation)]
+構造緩和に利用する計算手法を決定する．
+＼＼default
+＼＼if NSW=0 or 1 IBRION=-1．
+＼＼else IBRION=0
+＼＼-1 イオンをリラックスさせない． 
+＼＼0 分子動力学（MD:molecular dynamics）．
+＼＼1 準ニュートン法（quasi-Newton）．
+＼＼2 共役勾配法（conjugate-gradient）．
+＼＼3 最急降下法（Steepest descent method）．
+＼item[NSW(Number of ion Steps)]
+イオンの最大ステップ数を決定するパラメータである．
+原子への力やストレスはイオンのステップ数の計算により求まるので，構造緩和において重要な項目である．
+つまり，少なすぎると，計算精度が落ち，収束せずに計算を終える場合がある．
+その反面大きくすると計算時間が長くなるが，収束した際にはその時点で計算は打ち切られる．
+＼＼default NSW=0
+＼item[NELM(Number of Electronic Maximum)]
+セルフコンシステントループのループ数の上限を決定するパラメータである．
+NSWと同様に計算結果が収束すると，上限に達せずとも計算は終了する．
+＼＼default NELM=60
+＼item[NELMIN(Number of Electronic Minimum)]
+セルフコンシステントループの下限を決定するパラメータである．
+＼＼default NELMIN=2
+＼item[EDIFF(Electronic Difference)]
+電子計算の際，どの程度の収束で計算を終了するかを決めるパラメータである．
+イタレーション毎のエネルギー差を算出し，その値がEDIFFで指定した値以下になれば，計算が終了する．
+＼＼default EDIFF=1.0e-04=$10^{-4}$
+＼item[EDIFFG(Electronic Difference )]
+イオン計算の際に，どの程度の収束で計算を終了するかを決めるパラメータである．
+イタレーションごとに前の結果とのエネルギー差を算出し，その値がEDIFFで指定した値以下になれば，計算が終了する．
+＼＼default EDIFFG=EDIFF*10
+＼item[VOSKWN(Vosko-Wilk-Nusair)]
+一般的な計算で，電子の相関がある一部を補間する場合に使う，補間の方法を決定するパラメータである．
+＼＼default VOSKWN=0
+＼＼0 磁性を考慮する
+＼＼1 磁性を考慮しない
+＼item[ISPIN(Ion Spin)]
+スピンを考慮するどうかを指定するパラメータである．
+＼＼default ISPIN=1
+＼＼1 スピンを考慮しない．
+＼＼2 スピンを考慮する．
+＼item[MAGMOM(Magnetic Moment)]
+計算対象とするモデルに含まれる各原子の磁気モーメントを指定するパラメータである．
+もし，ISPIN=1の場合は考慮しない．
+＼＼default
+＼＼if non-collinear magnetic systims MAGMOM=3*NIONS*1.0 
+＼＼else MAGMOM=NIONS*1.0
+
+NIONSはPOSCAR ファイルの原子数である．
+強磁性の場合は，MAGMOM=8*1.0 のように入力する．
+反強磁性の場合は，MAGMOM=1 -1 1 -1 1 -1 1 -1 のように原子ごとに磁性の方向を入力する．
+＼item[INIWAV(Initial Wave)]
+計算をスタートさせるときに使用する初期の波動関数を決定するパラメータである．
+またISTART=0なら意味をなさない．
+＼＼default INIWAV=1
+＼＼0 Jellium wave function simply
+＼＼1 wave function arrays random numbers definitely
+＼item[ISTART(Iteration Start)]
+WAVECARファイルを読み込み，波動関数に使用するかを指定するパラメータである．
+＼＼default
+＼＼if WAVECAR exists ISTART=1
+＼＼else ISTART=0
+＼＼1 WAVECAR ファイルを読み込む．
+＼＼0 WAVECAR ファイルを読み込まない．常に初期化された波動関数を使用．
+＼item[ICHARG(Initial Charge)]
+電荷密度の初期状態の構成法を決定するパラメータである．
+＼＼default
+＼＼if ISTART=0 ICHARG=2?＼＼else ICHARG=0
+＼＼0 電子密度を初期の波動関数から導出．
+＼＼1 CHGCAR ファイルから初期のポジションを読み取り，線形的な組み合わせで新しいポジションへと外挿法から推定し導出．
+＼＼2 スーパーポジションを取り電化密度を導出（磁性を考慮する場合は設定）
+＼item[LWAVE(Less Wave)]
+波動関数をWAVECARに書き込むかどうか決定するパラメータである．
+.TRUE.の場合，WAVECAR ファイルが作成される．
+＼＼default LWAVE=.TRUE.
+＼item[LCHARG(Less Charge)]
+電化密度をCHGCARに書き込むかどうか決定するパラメータである．
+.TRUE.の場合はCHGCAR ファイルが作成される．
+＼＼default LCHARG=.TRUE.
+＼item[ISMEAR(Ion Smearing)]
+波動関数の表現法を設定するパラメータである．
+＼＼default ISMEAR=1
+＼＼0 Gaussianモデル
+＼＼-1 fermiモデル
+＼＼1..N Methfessel-Paxton法
+＼＼-4 Tetrahedron with Blochol correction (use a $＼Gamma$-centered k-mesh)
+
+金属の緩和法を考慮する場合は1か2を用いるが，この二つは比較的同じような解を算出する．
+より正確に全エネルギーを計算する場合，Tetrahedron with Blochol correction（-5）を推奨する．
+しかし，この手法はForceに対する評価が正しく行えないことがある．
+そのため，構造最適化計算やPhonon計算の場合には，Methfessel-Paxtonを推奨する．
+半導体，もしくは絶縁体の場合，Methfessel-Paxtonでは，電子の占有数が2以上になる場合がある．
+そのため，Tetrahedron with Blochol correctionを推奨する．
+k点数が少ない場合は，Gaussianを推奨する．
+＼item[LREAL(Less Real)]
+積分法を決定するパラメータである．
+Real spaceとReciprocal spaceは積分の方法が異なる．
+大きな系（格子定数が5$＼rm{＼AA}$以上）のときは，Real spaceの方が，計算が速い．
+小さな系の場合には，Reciprocal spaceで計算することを推奨する．
+高精度の計算を行いたい場合は，Reciprocal spaceで計算することを推奨する．
+＼＼default LREAL = .FALSE.
+＼＼.FALSE. Reciprocal spaceを使用．
+＼＼.TRUE. Real spaceを使用．
+＼item[RWIGS(Winger Seitz Radius)]
+原子半径を表すパラメータである．
+＼＼default RWIGS = RCORE
+＼end{description}
+＼subsection{POSCAR}＼label{poscarfile}
+POSCARファイルは原子モデルを構築するために使用するファイルである．格子定数や原子数，および各原子の相対座標を入力でき，局所的な原子緩和の指定も行える．
+図＼ref{POSCAR1}には，Siのダイヤモンド構造のPOSCARファイルを，図＼ref{Si}には，そのPOSCARファイルに対応するSiのダイヤモンド構造を示した．
+
+図＼ref{POSCAR1}の実線で囲まれた部分は，格子定数の倍率である．
+この倍率を1.1や1.2に変更することで，基本並進ベクトルはすべて1.1倍，1.2倍され，格子を膨張させることができる．
+点線で囲まれた部分は基本並進ベクトルで，1，2，3行目はa，b，cのベクトルを表す．
+破線で囲まれた部分は原子数を表し，太線で囲まれた部分はそれぞれの原子の相対座標を表している．
+2元系の計算を行う際，1つ目の原子数の後にスペースを入力し，続けて2つ目の原子数を入力する．
+この際，原子数を表す各原子の順序は後述のPOTCARファイルに明記された各原子のポテンシャルの順序と対応させなければならない．
+
+%基本並進ベクトルを元にした原子位置を表している．
+%2種類以上の原子で計算を行う場合は，空白の行を一行入力したあとに別の原子の原子位置を入力する．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=13.0cm]{./Figure/POSCAR1.jpg}
+＼caption{POSCAR ファイル．}
+＼label{POSCAR1}
+＼end{center}
+＼end{figure}
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=10.0cm]{./Figure/Sicrystal.jpg}
+＼caption{Siのダイヤモンド構造}
+＼label{Si}
+＼end{center}
+＼end{figure}
+
+次に，各原子を個別に緩和させたい場合のPOSCARファイルを図＼ref{POSCAR2}に示した．
+先ほど示したファイルとの違いは，各原子の相対座標の横に実線で囲まれた部分が追加されていることである．
+この実線で囲まれた部分を変更することで，それぞれの原子のa，b，cの方向にそれぞれ緩和させるかを決めることができる．
+TはTrue，FはFalseを表している．
+例えばこの図に示された点線で囲まれた部分は緩和を行わないが，破線で囲まれた部分はz軸方向にだけ緩和を行う．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=14.0cm]{./Figure/POSCAR2.jpg}
+＼caption{各原子ごとに緩和させるか指定するPOSCARファイル．}
+＼label{POSCAR2}
+＼end{center}
+＼end{figure}
+＼newpage
+＼subsection{KPOINTS}
+逆格子空間における点のことをk点と呼ぶ．
+KPOINTSファイルはそのk点のメッシュの細かさ，またk点の数を指定するファイルである．
+Siのダイヤモンド構造のKPOINTSファイルを図＼ref{KPOINTS}に示した．
+図の実線で囲まれた部分はメッシュを区切る方法である．
+defaultはAutmatic meshであるが，k点の数から可能な最大限の精度を得たい場合は，最適なk点を選択するMonkhorst-Pachを用いることが望ましい．
+点線で囲まれた部分でメッシュの区切りたいメッシュの数を入力する．
+defaultは0である．
+点線の部分が0の場合は，破線で囲まれた部分でk点を決定する．
+例えばこの図の場合は，4*4*4=64個のメッシュに区切って計算する．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=4.0cm]{./Figure/KPOINTS.jpg}
+＼caption{Siのダイヤモンド構造のKPOINTS ファイル．}
+＼label{KPOINTS}
+＼end{center}
+＼end{figure}
+＼subsection{POTCAR}
+各原子のポテンシャルを明記したファイルである．
+図＼ref{POTCAR}にSiの簡単なPOTCARファイルを示した．
+実線で示した部分では原子の種類を確認できる．
+また，破線で示した部分はファイルの終端である．
+もし，2元系以上の計算を行う場合は，この終端直後に別の原子のポテンシャルを記述する．
+注意点として，ポテンシャルを記述する順番は，POSCARファイルに対応させなければならない．
+
+%POTCARファイルではCut-off energyも指定できるが，リスト構造をとるINCARファイルの方が可視性に優れているため入力が容易である．
+＼begin{figure}[htbp]
+＼begin{center}
+＼includegraphics[width=18.0cm]{./Figure/POTCAR.jpg}
+＼caption{SiのPOTCAR ファイル．}
+＼label{POTCAR}
+＼end{center}
+＼end{figure}
+%＼end{document}

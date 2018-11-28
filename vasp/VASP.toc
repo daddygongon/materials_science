@@ -1,0 +1,93 @@
+\contentsline {section}{\numberline {1}第一原理計算法}{2}
+\contentsline {subsection}{\numberline {1.1}計算原理とその特徴}{2}
+\contentsline {paragraph}{Schr\"odinger方程式}{2}
+\contentsline {paragraph}{周期的境界条件}{4}
+\contentsline {paragraph}{学習のコツ}{4}
+\contentsline {subsection}{\numberline {1.2}電子構造と系のエネルギー}{5}
+\contentsline {paragraph}{原子--太陽系とのメタファ}{5}
+\contentsline {paragraph}{2原子分子--エネルギー準位}{5}
+\contentsline {paragraph}{固体--バンド}{6}
+\contentsline {subsection}{\numberline {1.3}材料開発で必要となるエネルギー値}{7}
+\contentsline {subsubsection}{\numberline {1.3.1}欠陥エネルギー}{7}
+\contentsline {subsubsection}{\numberline {1.3.2}状態図}{7}
+\contentsline {subsubsection}{\numberline {1.3.3}活性化エネルギー}{8}
+\contentsline {subsubsection}{\numberline {1.3.4}組織発展}{8}
+\contentsline {subsection}{\numberline {1.4}構造緩和}{9}
+\contentsline {paragraph}{E-V曲線}{9}
+\contentsline {paragraph}{内部・外部緩和}{9}
+\contentsline {paragraph}{軸と断熱ポテンシャル面(adiabatic potential surface)}{10}
+\contentsline {section}{\numberline {2}具体的な適用例}{12}
+\contentsline {subsection}{\numberline {2.1}化合物半導体の安定性と積層欠陥エネルギー}{12}
+\contentsline {paragraph}{背景}{12}
+\contentsline {paragraph}{計算モデル}{12}
+\contentsline {paragraph}{計算結果と議論}{12}
+\contentsline {paragraph}{引用文献}{13}
+\contentsline {subsection}{\numberline {2.2}SiO$_{2}$多形の高圧平衡：E-V曲線からの高圧平衡算出}{14}
+\contentsline {paragraph}{背景}{14}
+\contentsline {paragraph}{計算結果}{14}
+\contentsline {subsubsection}{\numberline {2.2.1}２相間の平衡圧力の求め方}{14}
+\contentsline {subsection}{\numberline {2.3}Si完全結晶内でのO原子の侵入位置：手動緩和}{17}
+\contentsline {paragraph}{背景}{17}
+\contentsline {paragraph}{計算手法}{17}
+\contentsline {paragraph}{計算結果}{17}
+\contentsline {subsection}{\numberline {2.4}ZrCr$_2$Laves 相の phonon 計算による高温安定性}{19}
+\contentsline {paragraph}{背景}{19}
+\contentsline {paragraph}{計算手法}{19}
+\contentsline {paragraph}{結果}{20}
+\contentsline {subsection}{\numberline {2.5}SiC結晶多形における熱膨張率}{21}
+\contentsline {paragraph}{背景}{21}
+\contentsline {paragraph}{手法}{21}
+\contentsline {paragraph}{結果}{21}
+\contentsline {subsection}{\numberline {2.6}SiC 表面における C 原子の拡散活性化エネルギー}{23}
+\contentsline {paragraph}{背景}{23}
+\contentsline {paragraph}{手法}{23}
+\contentsline {paragraph}{結果}{23}
+\contentsline {subsection}{\numberline {2.7}SiC極性表面のエネルギー計算}{25}
+\contentsline {subsubsection}{\numberline {2.7.1}表面モデル}{25}
+\contentsline {subsubsection}{\numberline {2.7.2}被覆率と化学ポテンシャル}{25}
+\contentsline {paragraph}{計算結果}{27}
+\contentsline {subsection}{\numberline {2.8}P，Bを含んだSi結晶の積層欠陥エネルギーの第一原理計算}{28}
+\contentsline {paragraph}{背景}{28}
+\contentsline {paragraph}{計算モデル}{28}
+\contentsline {paragraph}{結果}{28}
+\contentsline {subsection}{\numberline {2.9}核生成の活性化エネルギー}{30}
+\contentsline {paragraph}{背景}{30}
+\contentsline {paragraph}{計算モデル}{31}
+\contentsline {paragraph}{結果}{31}
+\contentsline {section}{\numberline {3}VASPの使用法}{34}
+\contentsline {subsection}{\numberline {3.1}計算ホストへのログイン}{34}
+\contentsline {subsection}{\numberline {3.2}VASPの実行}{34}
+\contentsline {subsection}{\numberline {3.3}E-V曲線の作成}{36}
+\contentsline {subsection}{\numberline {3.4}Linuxコマンド}{39}
+\contentsline {subsection}{\numberline {3.5}設定ファイル}{42}
+\contentsline {subsection}{\numberline {3.6}INCAR}{42}
+\contentsline {subsection}{\numberline {3.7}POSCAR}{46}
+\contentsline {subsubsection}{\numberline {3.7.1}KPOINTS}{49}
+\contentsline {subsection}{\numberline {3.8}POTCAR}{49}
+\contentsline {subsection}{\numberline {3.9}電子状態密度の表示}{50}
+\contentsline {subsubsection}{\numberline {3.9.1}入力ファイルの設定}{50}
+\contentsline {paragraph}{ICHARG}{50}
+\contentsline {paragraph}{ISMEAR}{51}
+\contentsline {subsubsection}{\numberline {3.9.2}DOS計算の精度}{51}
+\contentsline {paragraph}{SIGMA}{51}
+\contentsline {paragraph}{EMIN，EMAX and NEDOS}{51}
+\contentsline {subsubsection}{\numberline {3.9.3}DOS分布の表示}{51}
+\contentsline {paragraph}{DOSCARファイル}{52}
+\contentsline {paragraph}{DOS分布グラフ}{52}
+\contentsline {section}{\numberline {4}特殊な例,他}{54}
+\contentsline {subsection}{\numberline {4.1}GUIでVASPの実行，MedeAの使用}{54}
+\contentsline {subsubsection}{\numberline {4.1.1}MedeAの基本環境}{54}
+\contentsline {subsubsection}{\numberline {4.1.2}計算の流れ}{54}
+\contentsline {subsection}{\numberline {4.2}構造緩和}{58}
+\contentsline {paragraph}{IBRION}{58}
+\contentsline {paragraph}{NSW}{58}
+\contentsline {paragraph}{ISIF}{58}
+\contentsline {subsection}{\numberline {4.3}磁性材料でのspin計算}{59}
+\contentsline {paragraph}{磁性}{59}
+\contentsline {paragraph}{強磁性，反強磁性}{59}
+\contentsline {paragraph}{計算実例}{60}
+\contentsline {paragraph}{VOSKOWN}{60}
+\contentsline {paragraph}{ISPIN}{60}
+\contentsline {paragraph}{ICHARG}{60}
+\contentsline {paragraph}{MAGMON}{60}
+\contentsline {subsection}{\numberline {4.4}Phonon計算}{62}

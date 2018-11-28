@@ -1,0 +1,35 @@
+\subsection{化合物半導体の安定性と積層欠陥エネルギー}
+\paragraph{背景}
+第一原理計算は種々の元素に対して，汎用に計算精度が確保できるところが利点である．ここでは，第一原理計算で求めた化合物半導体の安定性と，実験的に求まっている積層欠陥エネルギーを比較し，計算精度がどの程度であるかを検証した例を報告する．
+
+Zincblende構造(ZB)とWurtzite構造(WZ)の積層欠陥部は，それそれWZとZBを有している．したがって積層欠陥エネルギー（$\gamma'$）は，ZBとWZの構造エネルギー差（$\Delta E_\textrm{ZB-WZ}$）と高い相関がある．また，図\ref{RSFE}に示すように，竹内，鈴木によって実験的に得られた$\gamma'$は，有効電荷 $e$*およびWZの $c/a$ 比 と強い相関をもつことが報告されている．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=10.0cm,bb=0 0 642 532]{masaki/Figure/RSFE.jpg}
+\caption{積層欠陥エネルギー（$\gamma'$）との相関．(a)有効電荷 $e$*，(b)WZ構造の $c/a$ 比．}
+\label{RSFE}
+\end{center}
+\end{figure}
+\paragraph{計算モデル}
+III-V 族半導体，II-VI 族半導体から成るZBとWZのユニットセルを作り，第一原理計算ソフトVASPを用いてそれぞれのエネルギーを計算し，$\Delta E_\textrm{ZB-WZ}$およびWZの$c/a$比を求めた．また，これらの結果からZBとWZの安定性について調べた．計算条件として，エネルギーが精度よく再現されるように，カットオフエネルギーを1000eVに設定した．
+\paragraph{計算結果と議論}
+ 図\ref{SF_result}に，実験で得られた$\gamma'$と，我々が計算で求めた$\Delta E_\textrm{ZB-WZ}$との相関関係を示した．$\gamma'$と$\Delta E_\textrm{ZB-WZ}$は正の相関を示しており，これらの値の間には，線形近似が成り立つことを期待させる．しかし，これらの相関はそれほど高くない．これは，積層間の相互作用が単純な2層間の相互作用だけで決定しないことを示唆している．また，CdSeに関しては，実験的に得られた安定構造を再現しておらず，矛盾が生じた．この矛盾に関しては，VASPの計算精度を再検討する必要がある．
+
+図\ref{c_a_ratio}に，我々が計算で求めた$\Delta E_\textrm{ZB-WZ}$とWZの $c/a$ 比 との相関関係を示した．この結果から，$\Delta E_\textrm{ZB-WZ}$とWZの $c/a$ 比との間には線形近似が成立した．また，ZBについては理想的な軸比$c/a$ = 1.633よりも大きいこと，WZにおいては小さいことが示され，実験結果と整合した．これは図\ref{RSFE}(b)に示した$\gamma'$と$c/a$比の関係と，図\ref{SF_result}に示した$\gamma'$と$\Delta E_\textrm{ZB-WZ}$の関係から，理解できる．以上より，$\gamma'$と$\Delta E_\textrm{ZB-WZ}$との相関性，およびZBとWZの安定性は，第一原理計算により求めた$\Delta E_\textrm{ZB-WZ}$や$c/a$比からアプローチを行うことで議論できることを示唆している．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=10.0cm,bb=0 0 808 613]{./masaki/Semiconductor_Compounds/Figure/SF_result.jpg}
+\caption{積層欠陥エネルギー($\gamma'$)と，ZBとWZの構造エネルギー差($\Delta$$E$$_{ZB-WZ}$)との相関．}
+\label{SF_result}
+\end{center}
+\end{figure}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=10.0cm,bb=0 0 939 651]{./masaki/Semiconductor_Compounds/Figure/c_a_ratio.jpg}
+\caption{構造エネルギー差($\Delta$$E$$_{ZB-WZ}$)と，WZの$c/a$ 比 との相関．}
+\label{c_a_ratio}
+\end{center}
+\end{figure}
+
+\paragraph{引用文献}
+[1] S. Takeuchi, and K. Suzuki, “Stacking Fault Energies of Tetrahedrally Coordinated Crystals,” Phys. Stat. Sol., (a) 171 (1999), 99-103.

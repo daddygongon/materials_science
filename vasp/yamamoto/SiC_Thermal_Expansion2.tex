@@ -1,0 +1,40 @@
+\subsection{SiC結晶多形における熱膨張率}\label{SiC結晶多形における熱膨張率}
+\paragraph{背景}
+\ref{ZrCr2Laves相のphonon計算による高温安定性}節において，自由エネルギー算出に用いたMedeA-Phononは，熱振動効果を加味するものの，熱膨張は取り入れることができない．
+しかし格子定数を意図的に操作し，各温度における最安定体積を計算することによって，熱膨張を求めることが出来る．
+本節では3C，4H-SiCを計算対象とし，このMedeA-Phononを使って算出した熱膨張率を紹介する．
+
+\paragraph{手法}
+3C-SiCは$c/a=1$の立方晶を形成する．
+それに対し，4H-SiCは，hexagonal構造であるため，$c/a$比は一般的に最密充填構造の理想軸比1.63と異なる．VASPで構造最適化を行うと，$c/a=3.10(1.55\times 2)$となる．したがって熱膨張を議論する際，3C-SiCは等方的な膨張を考えればよいが，4H-SiCは$a$軸と$c$軸の線形膨張率が異なる．
+
+今回利用したMedeA-Phononは一定体積のもと，系の自由エネルギーの温度依存性を計算する．そこで3C-SiCは$a$軸，$c$軸方向に等法的に格子定数を変化させ，各モデルの自由エネルギーを求め，各温度での最安定体積を計算し，熱膨張率を求めた．
+4H-SiCは$a$軸，$c$軸方向を別々に格子定数を変化させ，各温度における自由エネルギーの格子定数依存性を表すエネルギー曲面を描いた．
+そしてその最小値をとる格子定数を算出し，$a$軸，$c$軸各々に対する線形膨張率の温度依存性を求めた．
+
+\paragraph{結果}
+図\ref{3C_Thermal_Energy_Surface}は各温度における3C-SiCの自由エネルギーの格子定数依存性を示している．
+横軸とした$a/a$$_{0}$において$a$$_{0}$は零点振動を加味していない基底状態における格子定数を示している．
+各温度の自由エネルギー曲線における最小値は，その温度での格子定数および自由エネルギーを示している．
+これによると温度の上昇とともに，格子定数は増加し，熱膨張を再現している．
+\begin{figure}[htbp] \begin{center}\includegraphics[width=7.0cm]{./yamamoto/Figure/3C_Thermal_Energy_Surface.jpg} 
+\caption{各温度における3C-SiCの自由エネルギーの格子定数依存性．} \label{3C_Thermal_Energy_Surface}
+\end{center}
+\end{figure} 
+
+一方，図\ref{4H_Thermal_Energy_Surface}は各温度における4H-SiCの自由エネルギーの$a$軸，$c$軸の依存性を示している．
+すべての温度域において，基底状態における格子定数（($a/a$$_{0}$, $c/c$$_{0}$)=(1.0,1.0)）を青点，(a)500K (b)1000K (c)1500Kにおける格子定数を赤点で示している．
+こちらも3C-SiCと同様に，温度上昇とともに格子定数が推移し，熱膨張を再現していることがわかる．
+\begin{figure}[htbp] 
+\begin{center}\includegraphics[width=18.0cm,bb = 0 0 2800 1000]{./yamamoto/Figure/4H_Thermal_Energy_Surface.jpg} 
+\caption{(a) 500K (b) 1000K (c)1500K における4H-SiCの自由エネルギーの格子定数依存性．} \label{4H_Thermal_Energy_Surface}
+\end{center}
+\end{figure} 
+
+図\ref{SiC_Thermal_Expansion}は，図\ref{3C_Thermal_Energy_Surface}と図\ref{4H_Thermal_Energy_Surface}で示した各温度域の格子定数を用いて求めた(a)3C (b)4H-SiCの線形膨張率の理論計算結果と，実験的に報告されている線形膨張率を示している．
+両図とも実験値と計算値の最大誤差は0.03\%ほどであり，計算値と実験値が非常に良く整合している．
+\begin{figure}[htbp] 
+\begin{center}\includegraphics[width=13.0cm]{./yamamoto/Figure/SiC_Thermal_Expansion.jpg} 
+\caption{(a)3C-SiC (b) 4H-SiC における線形膨張率の温度依存性．} \label{SiC_Thermal_Expansion}
+\end{center}
+\end{figure}

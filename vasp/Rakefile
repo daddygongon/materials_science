@@ -1,0 +1,5 @@
+system "rm VASP.aux"
+system "env platex -kanji=sjis VASP.tex"
+system "env platex -kanji=sjis VASP.tex"
+system "dvipdfmx VASP"
+system "open VASP.pdf"

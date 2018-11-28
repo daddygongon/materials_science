@@ -1,0 +1,46 @@
+\subsection{ZrCr$_2$ Laves 相の phonon 計算による高温安定性}\label{ZrCr2Laves相のphonon計算による高温安定性}
+\subsubsection{ZrCr$_2$ Laves 相}
+水素吸蔵材や高温での硬度を保つ材料の一つとして，Laves 相は注目されている．
+Laves 相は，200 を上回る A-B 二元合金系のAB$_2$ 組成でできる金属間化合物の一つであり，その成因が構成原子の原子半径比に強く依存した最密充填構造である．
+本節では典型的な AB$_2$ 型の構造を形成するZrCr$_2$ Laves 相を取り扱う．
+図\ref{Laves_Models} に示した通り ZrCr$_2$ Laves 相は MgCu$_2$(C14)型，MgZn$_2$(C15)型, MgNi$_2$(C36)型という3つの構造をとり，図\ref{Phase_diagram} のように高温になるにつれC15 -$>$ C36 -$>$ C14 と最安定構造が遷移することが確認されている\cite{1}．
+\begin{figure}[htbp] 
+\begin{center}
+\includegraphics[width=10cm]{./Figure/Laves_Models.jpg} 
+\caption{ZrCr$_2$ Laves 相の各積層構造．} \label{Laves_Models}
+\end{center}
+\end{figure} 
+\begin{figure}[htbp]
+\begin{center}\includegraphics[width=8cm]{./Figure/Phase_diagram.jpg} 
+\caption{Zr-Cr二元系状態図．} \label{Phase_diagram}
+\end{center}
+\end{figure} 
+\subsubsection{有限温度における相安定性}
+\paragraph{背景}
+上述したように，ZrCr$_2$ Laves 相は温度域によって最安定構造が異なることが実験的に知られている．
+この各温度域ごとの最安定構造を議論するにあたり，支配的要因として各多形における自由エネルギーが考えられる．
+本節では，有限温度効果を加味した第一原理計算から算出した，ZrCr$_2$ Laves 相の多形における自由エネルギーを報告する．
+
+\paragraph{手法}
+手法については，後に詳述するが，まず原子を調和振動子とみなす．そしてフォノン分散曲線からフォノン状態密度を導出し，熱振動効果を加味した有限温度の自由エネルギーを求めた．
+ただし，C36 に含まれる単位胞あたりの原子数が多く，計算時間も長時間に及ぶため，計算精度をやや低く設定しており，さらに熱膨張も取り入れていない．
+
+\paragraph{結果}
+図\ref{Phase_stability}の両図は C15 を基準とした各相の自由エネルギー差を示している．
+図\ref{Phase_stability}(a)は実験的に報告されている格子定数を各モデルに適応し，自由エネルギーを計算した．
+一方，図\ref{Phase_stability}(b)はVASPで構造最適化を行った後，自由エネルギーを算出している．
+図\ref{Phase_stability}(a)において，高温になるにつれ C15 から C14 へ安定相が変化するという点で，実験結果と整合している．
+しかし1800～1900 K において，C36 が最安定構造であるという実験結果を再現するには至らなかった．
+また図\ref{Phase_stability}(b)においては，全温度域でC15が最安定構造となり，C15-$>$C36，C36-$>$C14の相変態を再現することは出来なかった．
+しかし高温になるにつれ C14 が安定化するという傾向は，図\ref{Phase_stability}(a)と一致しており，状態図とも整合している．
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=15cm]{./Figure/Laves_Phase_stability.jpg} 
+\caption{有限温度における ZrCr$_2$ Laves相の自由エネルギー差．} \label{Phase_stability}
+\end{center}
+\end{figure} 
+\begin{thebibliography}{9}
+\bibitem{1}
+J. Pavlu, J. Vrestal, M.Sob, ”Stability of Laves Phases in the CrZr System”, CALPHAD-COMPUTER COUPLING OF PHASEDIAGRAMS AND THERMOCHEMISTRY, 2009.
+\end{thebibliography}

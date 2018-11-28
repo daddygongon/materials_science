@@ -1,0 +1,97 @@
+\subsection{電子状態密度の表示}
+電子状態密度(DOS : Density of States)の表示は計算の妥当性を確認するために重要であり，またそれだけでなく、
+%状態密度とその各サイトへの射影が固体の電子状態を直接反映することから、
+その物性の直観的な理解にも必要不可欠である．
+ここでは，CUI上でのDOSの計算手法，並びに計算後のDOS分布の表示の仕方を見ていく．
+なお本計算例にはDiamond構造を持つSiモデルを用い，対応するPOSCARファイルを図\ref{Si-POSCAR}に示した．
+結晶の対称性には，DOSの射影の綺麗さや計算時間の短縮を考慮して，F$\overline{4}$3mを適用した．
+\begin{figure}[htbp]
+\begin{center}
+%\includegraphics[scale=0.3, bb = 0 180 1000 600]{./taniguchi/Figure/Si-POSCAR.jpg} 
+\includegraphics[scale=0.5]{./taniguchi/Figure/Si-POSCAR.jpg} 
+\caption{SiのPOSCARファイル．}
+\label{Si-POSCAR}
+\end{center}
+\end{figure}
+計算から表示までの大まかな流れは次の通りである．
+\begin{enumerate}
+\item{入力ファイルの設定}
+\item{DOS計算の精度変更}
+\item{DOS分布の表示}
+\end{enumerate}
+\subsubsection{入力ファイルの設定}
+DOSの計算モードを指定するには，入力ファイル中のINCARファイルのtagを変更する必要がある．
+以下に，DOS計算の実行に関わる２種類のtagの設定内容を示した．
+\paragraph{ICHARG}
+ICHARGは初期の電荷密度の導出法を決定するパラメータである．初期値と，各値に割り振られた導出法は次の通り．
+\begin{verbatim}
+Default:　ICHARG=2  if  ISTART=0
+　　　　　　　　 =0  else
+　  0　　初期の波動関数から導出．
+　  1　　CHGCARファイルから電荷密度を読み込み，
+　   　　 電荷密度の線形的な組み合わせにより新しいポジションへと外挿し導出．
+　  2　　電荷密度の重ね合わせ（super position）により導出．
+　+10　　Non-selfconsistent calculation
+\end{verbatim}
+いずれの値でもDOS計算が実行可能で，Total DOSを得ることが出来る．
+ただし，partial DOSを計算したい場合には，ICHARGの値を，元の値に10を足すことで10，11，12のいずれかに設定する．
+一度セルフコンシステントループをまわした後に，部分DOSの描画のための精密なk-pointでの再計算において計算時間を短縮する時に設定する．
+%なお，partial DOSの計算結果を出力するには，INCARファイル中でNPAR=1と設定する必要がある．
+\paragraph{ISMEAR}
+ISMEARは各電子軌道に対する部分占有の設定法を決定する変数である．smearingの語源は，もともとGaussianでとるとギザギザしていたDOSを広げて滑らかに表示させたことから来ている．初期値と，各値に割り振られた手法は次の通り．
+\begin{verbatim}
+Default:　ISMEAR=1
+1..N　　Methfessel-Paxton法（Nオーダー）
+　 0　　Gaussian関数
+　-1　　Fermi関数
+　-4　　Bl\"{o}chl補正なしのTetrahedron法
+　-5　　ブロッホ補正ありのTetrahedron法
+\end{verbatim}
+DOSの表示には，Blochl補正を入れたテトラヘドロン法を使うべきである．
+高い精度のエネルギー計算にもテトラヘドロン法が適している．しかし，
+金属の力の計算(phonon計算も含む)においてはMethfessel-Paxton法が適切である．
+これは，テトラヘドロン法では部分占有されたバンドに対しての微分が取れないためである．
+金属ではバンドギャップがなく，フェルミ面でカットされた部分DOSがある．しかし，
+半導体や誘電体ではこのような状況は起こらないので，テトラヘドロン法が適している．
+ユニットセルサイズが非常に大きい場合は，k-pointを１個か２個しか取らないので，
+Gaussianを使っても問題ない．
+\subsubsection{DOS計算の精度}
+前述のようにINCARファイルのtagを設定することで，DOS計算を実行することができる．
+さらに，その計算の精度を向上させたい場合には，他のtagを変更する必要がある．
+以下に，DOS計算の精度に関わる４種類のtagの設定内容を示した．
+\paragraph{SIGMA}
+SIGMAはISMEARで設定したsmearingの幅を指定する初期値はSIGMA = 0.2 [eV]であり，
+\paragraph{EMIN，EMAX and NEDOS}
+EMIN，EMAXはそれぞれ，DOS計算によるエネルギーの最小値，最大値である．
+この値を変更することで，出力するエネルギー範囲を指定することができる．
+また，NEDOSはDOS計算における格子点(grid points)の数を表している．初期値はNEDOS = 301である．
+\subsubsection{DOS分布の表示}
+DOSの計算が完了すると，出力ファイルとして図\ref{DOSCAR}のようなDOSCARファイルが作成される．
+その記述から目的の値を抽出し作成したDOSグラフが，図\ref{Tetra_DOS_Si}である．
+このグラフの作成には，数値計算用ソフトMapleを使用した．
+%今回は，ICHARG = 2，ISMEAR = 0と設定し，k点が十分でなくても比較的計算精度の高いGaussian法を用いたDOS計算を行った．
+なお今回は，計算精度に関わるパラメータは変更せず，ICHARG = 2，ISMEAR = -5と設定し，計算モデルである半導体Siに関して有効とされるTetrahedron法を用いたDOS計算の実行結果を見ていく．
+\paragraph{DOSCARファイル}
+図\ref{DOSCAR}は，今回の計算で得られたDOSCARファイルの記述である．
+記述の６行目の左から４項は，EMAX，EMIN，NEDOS，Fermi準位($E_{\textrm{F}}$)に対応する．
+７行目以降は，左から１列目が格子点毎のEnergy，２列目がTotal DOS，３列目がTotal DOSの積分となるintegrated DOSである．
+spinを考慮した計算であれば，左からEnergy，DOS(up)，DOS(down)，integrated DOS(up)，integrated DOS(down)と記述され，
+partial DOSに関する計算であれば，Energy，s-DOS，p-DOS，d-DOSの値が１原子毎にTotal DOSの記述の後に追記される．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.35,bb = 0 50 1000 700]{./taniguchi/Figure/Si-DOSCAR_TetraBC.jpg} 
+\caption{Si diamond構造のDOSCARファイル．}
+\label{DOSCAR} 
+\end{center}
+\end{figure} 
+\paragraph{DOS分布グラフ}
+図\ref{Tetra_DOS_Si}のDOS分布グラフは，縦軸はEMIN=-8.196[eV]からEMAX=16.737[eV]までのNEDOS=301点分の格子点毎のEnergy[eV]，横軸はTotal DOS[1/eV]として表している．
+またこのときのFermi準位$E_{\textrm{F}}$=5.685[eV]を横軸に平行な直線で示した．
+このグラフの伝導帯，価電子帯には，Si原子のs，p，d各軌道からの射影が綺麗に反映されており，本モデルを用いたSCF計算やDOS計算の結果の妥当性を確認できる．なお，バンドギャップはLDAあるいはGGAでは再現できないので，実験値とは違う．ただし，バンドギャップ中の準位は相対的な評価をすることが妥当と言われている．
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.8]{./taniguchi/Figure/Si-DOS-TetraWithBC.jpg} 
+\caption{diamond構造のSiの電子状態密度分布(electron DOS:electron density of states)．縦軸がEnergy[eV]，横軸がDOS[1/eV]（状態密度）である．}
+\label{Tetra_DOS_Si}
+\end{center}
+\end{figure}
